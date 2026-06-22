@@ -25,9 +25,10 @@ h1 {
     margin: 30px auto;
 }
 
-#player {
+iframe {
     width: 100%;
     aspect-ratio: 16 / 9;
+    border: none;
 }
 </style>
 </head>
@@ -37,51 +38,17 @@ h1 {
 <h1>Nova Humanitatis</h1>
 
 <div class="video-container">
-    <div id="player"></div>
+    <iframe
+        src="https://www.dailymotion.com/embed/video/k1hfyk3ZCCYJDnGUCdw"
+        allow="autoplay; fullscreen; picture-in-picture"
+        allowfullscreen>
+    </iframe>
 </div>
 
-<script src="https://api.dmcdn.net/all.js"></script>
-
 <script>
-var player = DM.player(document.getElementById('player'), {
-    video: 'k1hfyk3ZCCYJDnGUCdw',
-    width: '100%',
-    params: {
-        autoplay: false
-    }
-});
-
-var stopTime = 163; // 2:43
-var stopped = false;
-
-setInterval(function() {
-
-    if (stopped) return;
-
-    try {
-
-        player.currentTime.then(function(time) {
-
-            if (time >= stopTime) {
-
-                stopped = true;
-
-                player.pause();
-
-                console.log("Paused at 2:43");
-
-            }
-
-        });
-
-    } catch(e) {
-
-        console.log(e);
-
-    }
-
-}, 250);
-
+setTimeout(function() {
+    location.reload();
+}, 163000); // 2:43
 </script>
 
 </body>
