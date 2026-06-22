@@ -20,23 +20,14 @@ h1 {
     margin-bottom: 20px;
 }
 
-img {
-    width: 400px;
-    max-width: 90%;
-    border: 2px solid white;
-    display: block;
-    margin: 20px auto;
-}
-
 .video-container {
     max-width: 1000px;
     margin: 30px auto;
 }
 
-iframe {
+#player {
     width: 100%;
     aspect-ratio: 16 / 9;
-    border: none;
 }
 </style>
 </head>
@@ -45,16 +36,31 @@ iframe {
 
 <h1>Nova Humanitatis</h1>
 
-<img src="test-image.png" alt="Nova Humanitatis">
-
 <div class="video-container">
-    <iframe
-        src="https://www.dailymotion.com/embed/video/k1hfyk3ZCCYJDnGUCdw"
-        allow="autoplay; fullscreen; picture-in-picture"
-        allowfullscreen
-        title="Nova Humanitatis Episode 1">
-    </iframe>
+    <div id="player"></div>
 </div>
+
+<script src="https://api.dmcdn.net/all.js"></script>
+
+<script>
+const player = DM.player(document.getElementById('player'), {
+    video: 'k1hfyk3ZCCYJDnGUCdw',
+    width: '100%',
+    params: {
+        autoplay: false
+    }
+});
+
+let stopped = false;
+
+player.addEventListener('timeupdate', function(event) {
+    if (!stopped && event.time >= 163) { // 2:43
+        stopped = true;
+        player.pause();
+        player.seek(163);
+    }
+});
+</script>
 
 </body>
 </html>
