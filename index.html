@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nova Humanitatis</title>
+<title>Nova Humanitatis Test</title>
 
 <style>
 body {
@@ -17,18 +17,6 @@ body {
 
 h1 {
     font-size: 64px;
-    margin-bottom: 20px;
-}
-
-.video-container {
-    max-width: 1000px;
-    margin: 30px auto;
-}
-
-iframe {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    border: none;
 }
 </style>
 </head>
@@ -37,18 +25,21 @@ iframe {
 
 <h1>Nova Humanitatis</h1>
 
-<div class="video-container">
-    <iframe
-        src="https://www.dailymotion.com/embed/video/k1hfyk3ZCCYJDnGUCdw"
-        allow="autoplay; fullscreen; picture-in-picture"
-        allowfullscreen>
-    </iframe>
-</div>
-
 <script>
+
+alert("Script loaded");
+
 setTimeout(function() {
-    location.reload();
-}, 163000); // 2:43
+
+    document.body.style.background = "red";
+
+    document.body.innerHTML = `
+        <h1>TEST SUCCESS</h1>
+        <h2>JavaScript is running</h2>
+    `;
+
+}, 5000);
+
 </script>
 
 </body>
