@@ -4,20 +4,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Nova Humanitatis</title>
 
 <style>
 body {
-    background-color: #07122a;
+    margin: 0;
+    padding: 40px;
+    background: #07122a;
     color: white;
     font-family: Arial, sans-serif;
     text-align: center;
-    margin: 0;
-    padding: 40px;
 }
 
 h1 {
-    font-size: 3em;
+    font-size: 64px;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 24px;
+    margin-bottom: 40px;
 }
 
 img {
@@ -25,22 +32,17 @@ img {
     max-width: 90%;
     border: 2px solid white;
     display: block;
-    margin: 20px auto;
-}
-
-.video-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
+    margin: 0 auto 40px auto;
 }
 
 iframe {
     width: 800px;
     max-width: 90%;
     height: 450px;
-    border: none;
+    border: 0;
 }
 </style>
+
 </head>
 
 <body>
@@ -51,16 +53,11 @@ iframe {
 
 <img src="test-image.png" alt="Test Image">
 
-<div class="video-container">
-    <iframe
-        width="800"
-        height="450"
-        src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0"
-        title="Video Test"
-        frameborder="0"
-        allowfullscreen>
-    </iframe>
-</div>
+<iframe
+src="https://www.youtube.com/embed/x5wkIewzyNg"
+title="Video Test"
+allowfullscreen>
+</iframe>
 
 </body>
 </html>
