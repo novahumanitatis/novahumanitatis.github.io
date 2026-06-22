@@ -43,7 +43,7 @@ h1 {
 <script src="https://api.dmcdn.net/all.js"></script>
 
 <script>
-const player = DM.player(document.getElementById('player'), {
+var player = DM.player(document.getElementById('player'), {
     video: 'k1hfyk3ZCCYJDnGUCdw',
     width: '100%',
     params: {
@@ -51,15 +51,37 @@ const player = DM.player(document.getElementById('player'), {
     }
 });
 
-let stopped = false;
+var stopTime = 163; // 2:43
+var stopped = false;
 
-player.addEventListener('timeupdate', function(event) {
-    if (!stopped && event.time >= 163) { // 2:43
-        stopped = true;
-        player.pause();
-        player.seek(163);
+setInterval(function() {
+
+    if (stopped) return;
+
+    try {
+
+        player.currentTime.then(function(time) {
+
+            if (time >= stopTime) {
+
+                stopped = true;
+
+                player.pause();
+
+                console.log("Paused at 2:43");
+
+            }
+
+        });
+
+    } catch(e) {
+
+        console.log(e);
+
     }
-});
+
+}, 250);
+
 </script>
 
 </body>
