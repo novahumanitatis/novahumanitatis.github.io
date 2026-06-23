@@ -54,17 +54,30 @@ h1{
 
     background:linear-gradient(
         to right,
-        #5a3514 0%,
-        #7a4b1e 20%,
-        #a56a2b 50%,
-        #c98a3c 80%,
-        #e3b36b 100%
+        #2b1607 0%,
+        #4a2810 25%,
+        #6a3b18 50%,
+        #8c5424 75%,
+        #a86a2f 100%
     );
 
     left:-8px;
 
     z-index:40;
     pointer-events:none;
+
+    /* tear towards play button */
+
+    clip-path:polygon(
+        0 0,
+        100% 0,
+        100% 82%,
+        70% 88%,
+        55% 92%,
+        35% 96%,
+        20% 100%,
+        0 100%
+    );
 }
 
 /* RIGHT FILM STRIP */
@@ -78,17 +91,30 @@ h1{
 
     background:linear-gradient(
         to left,
-        #5a3514 0%,
-        #7a4b1e 20%,
-        #a56a2b 50%,
-        #c98a3c 80%,
-        #e3b36b 100%
+        #2b1607 0%,
+        #4a2810 25%,
+        #6a3b18 50%,
+        #8c5424 75%,
+        #a86a2f 100%
     );
 
     right:-8px;
 
     z-index:40;
     pointer-events:none;
+
+    /* tear towards fullscreen button */
+
+    clip-path:polygon(
+        0 0,
+        100% 0,
+        100% 100%,
+        80% 100%,
+        65% 96%,
+        45% 92%,
+        30% 88%,
+        0 82%
+    );
 }
 
 /* FILM SPROCKET HOLES */
