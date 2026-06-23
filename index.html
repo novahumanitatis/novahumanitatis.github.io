@@ -41,34 +41,45 @@ h1{
     display:block;
 }
 
-/* FILM STRIPS */
+/* LEFT FILM STRIP */
 
-.film-left,
-.film-right{
+.film-left{
     position:absolute;
     top:0;
     bottom:0;
+
     width:48px;
 
     background:#000;
+
+    left:-8px;
 
     z-index:40;
     pointer-events:none;
 }
 
-.film-left{
-    left:-8px;
-}
+/* RIGHT FILM STRIP */
 
 .film-right{
+    position:absolute;
+    top:0;
+    bottom:0;
+
+    width:70px;
+
+    background:#000;
+
     right:-8px;
+
+    z-index:40;
+    pointer-events:none;
 }
 
-/* FILM HOLES */
+/* VERTICAL FILM HOLES */
 
 .hole{
-    width:26px;
-    height:18px;
+    width:20px;
+    height:46px;
 
     background:#cfcfcf;
 
@@ -77,8 +88,7 @@ h1{
     margin:8px auto;
 
     box-shadow:
-        inset 0 0 3px rgba(0,0,0,.35),
-        0 0 2px rgba(255,255,255,.08);
+        inset 0 0 3px rgba(0,0,0,.35);
 }
 
 /* COMMANDER GOOGLEIUS CONTAINMENT */
@@ -87,9 +97,12 @@ h1{
     position:absolute;
     top:0;
     right:0;
-    width:90px;
-    height:90px;
+
+    width:100px;
+    height:100px;
+
     background:transparent;
+
     z-index:60;
     pointer-events:auto;
 }
@@ -119,10 +132,6 @@ h1{
         <div class="hole"></div>
         <div class="hole"></div>
         <div class="hole"></div>
-        <div class="hole"></div>
-        <div class="hole"></div>
-        <div class="hole"></div>
-        <div class="hole"></div>
 
     </div>
 
@@ -130,10 +139,6 @@ h1{
 
     <div class="film-right">
 
-        <div class="hole"></div>
-        <div class="hole"></div>
-        <div class="hole"></div>
-        <div class="hole"></div>
         <div class="hole"></div>
         <div class="hole"></div>
         <div class="hole"></div>
