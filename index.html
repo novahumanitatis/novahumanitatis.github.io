@@ -3,38 +3,43 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Nova Humanitatis</title>
 
 <style>
-body {
-    margin: 0;
-    padding: 40px;
-    background: #07122a;
-    color: white;
-    font-family: Arial, sans-serif;
-    text-align: center;
+body{
+    margin:0;
+    background:#07122a;
+    color:white;
+    font-family:Arial,sans-serif;
+    text-align:center;
 }
 
-h1 {
-    font-size: 64px;
-    margin-bottom: 30px;
+h1{
+    margin-top:40px;
+    font-size:64px;
 }
 
-.video-container {
-    position: relative;
-    width: 100%;
-    max-width: 1000px;
-    margin: auto;
-    aspect-ratio: 16 / 9;
+.cover{
+    max-width:960px;
+    width:90%;
+    cursor:pointer;
+    border:3px solid white;
+    margin-top:20px;
 }
 
-.video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 3px solid white;
+.video-container{
+    display:none;
+    max-width:960px;
+    width:90%;
+    margin:20px auto;
+    aspect-ratio:16/9;
+}
+
+.video-container iframe{
+    width:100%;
+    height:100%;
+    border:3px solid white;
 }
 </style>
 </head>
@@ -43,13 +48,33 @@ h1 {
 
 <h1>Nova Humanitatis</h1>
 
-<div class="video-container">
-    <iframe
-        src="https://drive.google.com/file/d/1xphi8NVdWi1YEi88C-hHaWsJqQHQXAWW/preview"
-        allow="autoplay"
-        allowfullscreen>
-    </iframe>
+<img
+    src="Episode 1.png"
+    class="cover"
+    id="coverImage"
+    alt="Episode 1">
+
+<div class="video-container" id="videoContainer">
+
+<iframe
+src="https://drive.google.com/file/d/1xphi8NVdWi1YEi88C-hHaWsJqQHQXAWW/preview"
+allow="autoplay"
+allowfullscreen>
+</iframe>
+
 </div>
+
+<script>
+
+document.getElementById("coverImage").onclick = function(){
+
+    document.getElementById("coverImage").style.display = "none";
+
+    document.getElementById("videoContainer").style.display = "block";
+
+};
+
+</script>
 
 </body>
 </html>
