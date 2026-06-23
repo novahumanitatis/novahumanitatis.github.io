@@ -22,7 +22,7 @@ h1{
     letter-spacing:2px;
 }
 
-/* OLED FRAME */
+/* OUTER MONITOR */
 
 .monitor-frame{
 
@@ -30,7 +30,7 @@ h1{
 
     display:inline-block;
 
-    padding:30px;
+    padding:18px;
 
     background:linear-gradient(
         135deg,
@@ -41,7 +41,7 @@ h1{
         #050505 100%
     );
 
-    border-radius:32px;
+    border-radius:28px;
 
     box-shadow:
         0 0 40px rgba(0,0,0,.65),
@@ -49,25 +49,29 @@ h1{
         inset 0 -1px 0 rgba(0,0,0,.7);
 }
 
+/* INNER BEZEL */
+
 .monitor-frame::before{
 
     content:"";
 
     position:absolute;
 
-    top:12px;
-    left:12px;
-    right:12px;
-    bottom:12px;
+    top:10px;
+    left:10px;
+    right:10px;
+    bottom:10px;
 
-    border-radius:24px;
+    border-radius:20px;
 
     border:1px solid rgba(255,255,255,.05);
 
     pointer-events:none;
+
+    z-index:5;
 }
 
-/* VIDEO AREA */
+/* VIDEO */
 
 .video-container{
 
@@ -76,22 +80,14 @@ h1{
     width:1200px;
     max-width:90vw;
 
-    background:#000;
+    overflow:hidden;
 
     border-radius:16px;
 
-    overflow:hidden;
+    background:#000;
 }
 
-/* SHRINK VIDEO INSIDE FRAME */
-
-.video-inner{
-
-    width:96%;
-    margin:2%;
-}
-
-.video-inner iframe{
+.video-container iframe{
 
     display:block;
 
@@ -100,8 +96,104 @@ h1{
     aspect-ratio:16/9;
 
     border:none;
+}
 
-    border-radius:10px;
+/* EDGE OVERLAYS */
+
+/* TOP */
+
+.monitor-top{
+
+    position:absolute;
+
+    top:0;
+    left:0;
+    right:0;
+
+    height:50px;
+
+    background:linear-gradient(
+        to bottom,
+        #000000,
+        #1a1a1a,
+        transparent
+    );
+
+    z-index:500;
+
+    pointer-events:none;
+}
+
+/* BOTTOM */
+
+.monitor-bottom{
+
+    position:absolute;
+
+    bottom:0;
+    left:0;
+    right:0;
+
+    height:50px;
+
+    background:linear-gradient(
+        to top,
+        #000000,
+        #1a1a1a,
+        transparent
+    );
+
+    z-index:500;
+
+    pointer-events:none;
+}
+
+/* LEFT */
+
+.monitor-left{
+
+    position:absolute;
+
+    top:0;
+    bottom:0;
+    left:0;
+
+    width:70px;
+
+    background:linear-gradient(
+        to right,
+        #000000,
+        #1a1a1a,
+        transparent
+    );
+
+    z-index:500;
+
+    pointer-events:none;
+}
+
+/* RIGHT */
+
+.monitor-right{
+
+    position:absolute;
+
+    top:0;
+    bottom:0;
+    right:0;
+
+    width:70px;
+
+    background:linear-gradient(
+        to left,
+        #000000,
+        #1a1a1a,
+        transparent
+    );
+
+    z-index:500;
+
+    pointer-events:none;
 }
 
 </style>
@@ -115,16 +207,17 @@ h1{
 
     <div class="video-container">
 
-        <div class="video-inner">
+        <iframe
+            src="https://drive.google.com/file/d/1vqgtaP1BuL1OukWM6_U_B5bNDmNkdTy0/preview"
+            allow="autoplay"
+            allowfullscreen
+            sandbox="allow-scripts allow-same-origin">
+        </iframe>
 
-            <iframe
-                src="https://drive.google.com/file/d/1vqgtaP1BuL1OukWM6_U_B5bNDmNkdTy0/preview"
-                allow="autoplay"
-                allowfullscreen
-                sandbox="allow-scripts allow-same-origin">
-            </iframe>
-
-        </div>
+        <div class="monitor-top"></div>
+        <div class="monitor-bottom"></div>
+        <div class="monitor-left"></div>
+        <div class="monitor-right"></div>
 
     </div>
 
