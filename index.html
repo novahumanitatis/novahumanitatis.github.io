@@ -9,7 +9,7 @@
 
 body{
     margin:0;
-    padding:40px;
+    padding:20px;
     background:#07122a;
     color:white;
     font-family:Arial,sans-serif;
@@ -18,8 +18,10 @@ body{
 
 h1{
     font-size:64px;
-    margin-bottom:30px;
+    margin-bottom:25px;
 }
+
+/* Main Frame */
 
 .video-frame{
     position:relative;
@@ -27,6 +29,8 @@ h1{
     max-width:1200px;
     margin:auto;
 }
+
+/* Video Container */
 
 .video-container{
     position:relative;
@@ -40,14 +44,14 @@ h1{
     display:block;
 }
 
-/* HUD CORNERS */
+/* Metallic Blue HUD Corners */
 
 .corner{
     position:absolute;
     width:60px;
     height:60px;
+    z-index:40;
     pointer-events:none;
-    z-index:30;
 }
 
 .tl-corner{
@@ -82,50 +86,48 @@ h1{
     box-shadow:0 0 12px rgba(120,180,255,.8);
 }
 
-/* GOOGLEIUS CLONES */
+/* Dark Corner Plates */
 
-.clone{
+.plate{
     position:absolute;
-    width:32px;
-    height:32px;
-    background:rgba(0,0,0,.35);
-    border:1px solid rgba(255,255,255,.25);
-    z-index:40;
+    width:42px;
+    height:42px;
+    background:rgba(40,45,70,.85);
+    border:1px solid rgba(255,255,255,.12);
+    z-index:35;
     pointer-events:none;
 }
 
-.clone svg{
-    position:absolute;
-    left:5px;
-    top:5px;
-    width:22px;
-    height:22px;
-    opacity:.85;
+/* Positions */
+
+.tl-plate{
+    top:8px;
+    left:8px;
 }
 
-.tl{
-    top:14px;
-    left:14px;
+.tr-plate{
+    top:8px;
+    right:8px;
 }
 
-.bl{
-    bottom:14px;
-    left:14px;
+.bl-plate{
+    bottom:8px;
+    left:8px;
 }
 
-.br{
-    bottom:14px;
-    right:14px;
+.br-plate{
+    bottom:8px;
+    right:8px;
 }
 
-/* CONTAINMENT FIELD */
+/* Commander Googleius Containment Field */
 
 .googleius-blocker{
     position:absolute;
     top:0;
     right:0;
-    width:70px;
-    height:70px;
+    width:75px;
+    height:75px;
     background:transparent;
     z-index:50;
     pointer-events:auto;
@@ -140,36 +142,19 @@ h1{
 
 <div class="video-frame">
 
+    <!-- Blue HUD Corners -->
+
     <div class="corner tl-corner"></div>
     <div class="corner tr-corner"></div>
     <div class="corner bl-corner"></div>
     <div class="corner br-corner"></div>
 
-    <!-- Anti-Google Mr Squares -->
+    <!-- Dark Corner Plates -->
 
-    <div class="clone tl">
-        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-            <path d="M14 3h7v7"/>
-            <path d="M21 3L10 14"/>
-            <path d="M21 14v7H3V3h7"/>
-        </svg>
-    </div>
-
-    <div class="clone bl">
-        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-            <path d="M14 3h7v7"/>
-            <path d="M21 3L10 14"/>
-            <path d="M21 14v7H3V3h7"/>
-        </svg>
-    </div>
-
-    <div class="clone br">
-        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-            <path d="M14 3h7v7"/>
-            <path d="M21 3L10 14"/>
-            <path d="M21 14v7H3V3h7"/>
-        </svg>
-    </div>
+    <div class="plate tl-plate"></div>
+    <div class="plate tr-plate"></div>
+    <div class="plate bl-plate"></div>
+    <div class="plate br-plate"></div>
 
     <div class="video-container">
 
@@ -179,6 +164,8 @@ h1{
             allowfullscreen
             sandbox="allow-scripts allow-same-origin">
         </iframe>
+
+        <!-- Commander Googleius Containment Field -->
 
         <div class="googleius-blocker"></div>
 
