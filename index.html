@@ -6,6 +6,7 @@
 <title>Nova Humanitatis</title>
 
 <style>
+
 body{
     margin:0;
     padding:40px;
@@ -18,14 +19,20 @@ body{
 h1{
     font-size:64px;
     margin-bottom:30px;
+    letter-spacing:2px;
 }
 
-.video-container{
+.video-frame{
     position:relative;
     width:90%;
     max-width:1200px;
     margin:auto;
+}
+
+.video-container{
+    position:relative;
     aspect-ratio:16/9;
+    overflow:hidden;
 }
 
 .video-container iframe{
@@ -34,6 +41,55 @@ h1{
     border:none;
     display:block;
 }
+
+/* Futuristic Corner Brackets */
+
+.corner{
+    position:absolute;
+    width:60px;
+    height:60px;
+    pointer-events:none;
+    z-index:10;
+}
+
+/* Top Left */
+.tl{
+    top:-8px;
+    left:-8px;
+    border-top:3px solid rgba(180,220,255,.8);
+    border-left:3px solid rgba(180,220,255,.8);
+}
+
+/* Top Right */
+.tr{
+    top:-8px;
+    right:-8px;
+    border-top:3px solid rgba(180,220,255,.8);
+    border-right:3px solid rgba(180,220,255,.8);
+}
+
+/* Bottom Left */
+.bl{
+    bottom:-8px;
+    left:-8px;
+    border-bottom:3px solid rgba(180,220,255,.8);
+    border-left:3px solid rgba(180,220,255,.8);
+}
+
+/* Bottom Right */
+.br{
+    bottom:-8px;
+    right:-8px;
+    border-bottom:3px solid rgba(180,220,255,.8);
+    border-right:3px solid rgba(180,220,255,.8);
+}
+
+/* Soft glow */
+
+.corner{
+    box-shadow:0 0 10px rgba(120,180,255,.4);
+}
+
 </style>
 </head>
 
@@ -41,18 +97,20 @@ h1{
 
 <h1>Nova Humanitatis</h1>
 
-<div class="video-container">
+<div class="video-frame">
 
-<iframe
-width="1200"
-height="675"
-src="https://www.youtube.com/embed/YNk7O4STFto?rel=0&modestbranding=1"
-title="Nova Humanitatis"
-frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-referrerpolicy="strict-origin-when-cross-origin"
-allowfullscreen>
-</iframe>
+    <div class="corner tl"></div>
+    <div class="corner tr"></div>
+    <div class="corner bl"></div>
+    <div class="corner br"></div>
+
+    <div class="video-container">
+        <iframe
+            src="https://drive.google.com/file/d/1vqgtaP1BuL1OukWM6_U_B5bNDmNkdTy0/preview"
+            allow="autoplay"
+            allowfullscreen>
+        </iframe>
+    </div>
 
 </div>
 
