@@ -20,10 +20,7 @@ h1{
     font-size:64px;
     margin-bottom:25px;
     letter-spacing:2px;
-    text-shadow:0 0 12px rgba(180,220,255,.4);
 }
-
-/* MAIN CONTAINER */
 
 .cinema-frame{
     position:relative;
@@ -31,8 +28,6 @@ h1{
     max-width:1200px;
     margin:auto;
 }
-
-/* VIDEO */
 
 .video-container{
     position:relative;
@@ -53,19 +48,8 @@ h1{
     position:absolute;
     top:0;
     bottom:0;
-    width:72px;
-
-    background:
-    linear-gradient(
-        to right,
-        rgba(10,15,30,.98),
-        rgba(20,25,45,.98)
-    );
-
-    box-shadow:
-        0 0 20px rgba(120,180,255,.25),
-        inset 0 0 25px rgba(255,255,255,.05);
-
+    width:70px;
+    background:#000;
     z-index:40;
     pointer-events:none;
 }
@@ -78,66 +62,20 @@ h1{
     right:0;
 }
 
-/* SPROCKET HOLES */
+/* FILM HOLES */
 
 .hole{
-    width:42px;
-    height:52px;
+    width:26px;
+    height:18px;
 
-    background:#000;
+    background:white;
 
-    border:
-    1px solid rgba(255,255,255,.15);
+    border-radius:3px;
 
-    margin:8px auto;
-
-    box-shadow:
-        inset 0 0 10px rgba(0,0,0,.9);
+    margin:10px auto;
 }
 
-/* HUD CORNERS */
-
-.corner{
-    position:absolute;
-    width:70px;
-    height:70px;
-    z-index:50;
-    pointer-events:none;
-}
-
-.tl{
-    top:-8px;
-    left:-8px;
-    border-top:3px solid #b8e0ff;
-    border-left:3px solid #b8e0ff;
-    box-shadow:0 0 12px rgba(120,180,255,.8);
-}
-
-.tr{
-    top:-8px;
-    right:-8px;
-    border-top:3px solid #b8e0ff;
-    border-right:3px solid #b8e0ff;
-    box-shadow:0 0 12px rgba(120,180,255,.8);
-}
-
-.bl{
-    bottom:-8px;
-    left:-8px;
-    border-bottom:3px solid #b8e0ff;
-    border-left:3px solid #b8e0ff;
-    box-shadow:0 0 12px rgba(120,180,255,.8);
-}
-
-.br{
-    bottom:-8px;
-    right:-8px;
-    border-bottom:3px solid #b8e0ff;
-    border-right:3px solid #b8e0ff;
-    box-shadow:0 0 12px rgba(120,180,255,.8);
-}
-
-/* CONTAINMENT FIELD */
+/* Commander Googleius Containment */
 
 .googleius-blocker{
     position:absolute;
@@ -145,8 +83,8 @@ h1{
     right:0;
     width:90px;
     height:90px;
-    z-index:60;
     background:transparent;
+    z-index:60;
     pointer-events:auto;
 }
 
@@ -159,13 +97,12 @@ h1{
 
 <div class="cinema-frame">
 
-    <div class="corner tl"></div>
-    <div class="corner tr"></div>
-    <div class="corner bl"></div>
-    <div class="corner br"></div>
-
     <div class="film-left">
 
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
         <div class="hole"></div>
         <div class="hole"></div>
         <div class="hole"></div>
@@ -187,17 +124,23 @@ h1{
         <div class="hole"></div>
         <div class="hole"></div>
         <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
 
     </div>
 
     <div class="video-container">
 
         <iframe
-        src="https://drive.google.com/file/d/1vqgtaP1BuL1OukWM6_U_B5bNDmNkdTy0/preview"
-        allow="autoplay"
-        allowfullscreen
-        sandbox="allow-scripts allow-same-origin">
+            src="https://drive.google.com/file/d/1vqgtaP1BuL1OukWM6_U_B5bNDmNkdTy0/preview"
+            allow="autoplay"
+            allowfullscreen
+            sandbox="allow-scripts allow-same-origin">
         </iframe>
+
+        <!-- Commander Googleius Containment Shield -->
 
         <div class="googleius-blocker"></div>
 
