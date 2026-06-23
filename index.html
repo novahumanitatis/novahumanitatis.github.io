@@ -19,7 +19,7 @@ body{
 h1{
     font-size:64px;
     margin-bottom:30px;
-    letter-spacing:2px;
+    letter-spacing:1px;
 }
 
 .video-frame{
@@ -32,7 +32,6 @@ h1{
 .video-container{
     position:relative;
     aspect-ratio:16/9;
-    overflow:hidden;
 }
 
 .video-container iframe{
@@ -42,52 +41,65 @@ h1{
     display:block;
 }
 
-/* Futuristic Corner Brackets */
+/* Decorative Commander Googleius clones */
 
-.corner{
+.fake-square{
     position:absolute;
-    width:60px;
-    height:60px;
+    width:36px;
+    height:36px;
+    background:rgba(0,0,0,.55);
+    border:1px solid rgba(255,255,255,.45);
+    z-index:20;
     pointer-events:none;
-    z-index:10;
+    box-sizing:border-box;
 }
 
 /* Top Left */
 .tl{
-    top:-8px;
-    left:-8px;
-    border-top:3px solid rgba(180,220,255,.8);
-    border-left:3px solid rgba(180,220,255,.8);
-}
-
-/* Top Right */
-.tr{
-    top:-8px;
-    right:-8px;
-    border-top:3px solid rgba(180,220,255,.8);
-    border-right:3px solid rgba(180,220,255,.8);
+    top:12px;
+    left:12px;
 }
 
 /* Bottom Left */
 .bl{
-    bottom:-8px;
-    left:-8px;
-    border-bottom:3px solid rgba(180,220,255,.8);
-    border-left:3px solid rgba(180,220,255,.8);
+    bottom:12px;
+    left:12px;
 }
 
 /* Bottom Right */
 .br{
-    bottom:-8px;
-    right:-8px;
-    border-bottom:3px solid rgba(180,220,255,.8);
-    border-right:3px solid rgba(180,220,255,.8);
+    bottom:12px;
+    right:12px;
 }
 
-/* Soft glow */
+/* Draw mini "open" icon */
 
-.corner{
-    box-shadow:0 0 10px rgba(120,180,255,.4);
+.fake-square::before{
+    content:"";
+    position:absolute;
+    top:8px;
+    left:8px;
+    width:12px;
+    height:12px;
+    border-top:2px solid rgba(255,255,255,.8);
+    border-right:2px solid rgba(255,255,255,.8);
+}
+
+.fake-square::after{
+    content:"";
+    position:absolute;
+    left:10px;
+    bottom:8px;
+    width:12px;
+    height:12px;
+    border-left:2px solid rgba(255,255,255,.8);
+    border-bottom:2px solid rgba(255,255,255,.8);
+}
+
+/* Optional subtle glow */
+
+.fake-square{
+    box-shadow:0 0 8px rgba(255,255,255,.15);
 }
 
 </style>
@@ -99,17 +111,21 @@ h1{
 
 <div class="video-frame">
 
-    <div class="corner tl"></div>
-    <div class="corner tr"></div>
-    <div class="corner bl"></div>
-    <div class="corner br"></div>
+    <!-- Decorative clones -->
+
+    <div class="fake-square tl"></div>
+    <div class="fake-square bl"></div>
+    <div class="fake-square br"></div>
 
     <div class="video-container">
+
         <iframe
             src="https://drive.google.com/file/d/1vqgtaP1BuL1OukWM6_U_B5bNDmNkdTy0/preview"
             allow="autoplay"
-            allowfullscreen>
+            allowfullscreen
+            sandbox="allow-scripts allow-same-origin">
         </iframe>
+
     </div>
 
 </div>
