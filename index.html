@@ -22,12 +22,16 @@ h1{
     letter-spacing:2px;
 }
 
+/* MAIN FRAME */
+
 .cinema-frame{
     position:relative;
     width:90%;
     max-width:1200px;
     margin:auto;
 }
+
+/* VIDEO */
 
 .video-container{
     position:relative;
@@ -48,8 +52,10 @@ h1{
     position:absolute;
     top:0;
     bottom:0;
-    width:70px;
+    width:82px;
+
     background:#000;
+
     z-index:40;
     pointer-events:none;
 }
@@ -65,17 +71,21 @@ h1{
 /* FILM HOLES */
 
 .hole{
-    width:26px;
-    height:18px;
+    width:34px;
+    height:22px;
 
-    background:white;
+    background:#cfcfcf;
 
-    border-radius:3px;
+    border-radius:4px;
 
-    margin:10px auto;
+    margin:8px auto;
+
+    box-shadow:
+        inset 0 0 3px rgba(0,0,0,.35),
+        0 0 2px rgba(255,255,255,.08);
 }
 
-/* Commander Googleius Containment */
+/* COMMANDER GOOGLEIUS CONTAINMENT */
 
 .googleius-blocker{
     position:absolute;
@@ -97,6 +107,8 @@ h1{
 
 <div class="cinema-frame">
 
+    <!-- LEFT FILM STRIP -->
+
     <div class="film-left">
 
         <div class="hole"></div>
@@ -108,11 +120,20 @@ h1{
         <div class="hole"></div>
         <div class="hole"></div>
         <div class="hole"></div>
+
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
         <div class="hole"></div>
         <div class="hole"></div>
         <div class="hole"></div>
 
     </div>
+
+    <!-- RIGHT FILM STRIP -->
 
     <div class="film-right">
 
@@ -125,11 +146,20 @@ h1{
         <div class="hole"></div>
         <div class="hole"></div>
         <div class="hole"></div>
+
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
         <div class="hole"></div>
         <div class="hole"></div>
         <div class="hole"></div>
 
     </div>
+
+    <!-- VIDEO -->
 
     <div class="video-container">
 
