@@ -6,48 +6,37 @@
 <title>Nova Humanitatis</title>
 
 <style>
-
-body{
-    margin:0;
-    padding:40px;
-    background:#07122a;
-    color:white;
-    font-family:Arial,sans-serif;
-    text-align:center;
+body {
+    margin: 0;
+    padding: 40px;
+    background: #07122a;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
 }
 
-h1{
-    font-size:64px;
-    margin-bottom:30px;
+h1 {
+    font-size: 64px;
+    margin-bottom: 30px;
 }
 
-.video-container{
-    position:relative;
-    width:90%;
-    max-width:1200px;
-    margin:0 auto;
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+    aspect-ratio: 16 / 9;
 }
 
-.video-container iframe{
-    width:100%;
-    height:675px;
-    border:none;
-    display:block;
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 3px solid white;
 }
-
-.icon-shield{
-    position:absolute;
-    top:0;
-    right:0;
-    width:100px;
-    height:100px;
-    opacity:0;
-    z-index:999999;
-    pointer-events:auto;
-}
-
 </style>
-
 </head>
 
 <body>
@@ -55,15 +44,11 @@ h1{
 <h1>Nova Humanitatis</h1>
 
 <div class="video-container">
-
     <iframe
         src="https://drive.google.com/file/d/1xphi8NVdWi1YEi88C-hHaWsJqQHQXAWW/preview"
         allow="autoplay"
         allowfullscreen>
     </iframe>
-
-    <div class="icon-shield"></div>
-
 </div>
 
 </body>
