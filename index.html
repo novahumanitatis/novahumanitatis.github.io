@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -18,41 +17,36 @@ body {
 
 h1 {
     font-size: 64px;
-    margin-bottom: 20px;
-}
-
-img {
-    width: 400px;
-    max-width: 90%;
-    border: 2px solid white;
-    display: block;
-    margin: 20px auto;
+    margin-bottom: 30px;
 }
 
 .video-container {
+    position: relative;
+    width: 100%;
     max-width: 1000px;
-    margin: 30px auto;
+    margin: auto;
+    aspect-ratio: 16 / 9;
 }
 
-iframe {
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    aspect-ratio: 16 / 9;
-    border: none;
+    height: 100%;
+    border: 3px solid white;
 }
 </style>
-
 </head>
 
 <body>
 
 <h1>Nova Humanitatis</h1>
 
-<img src="test-image.png" alt="Test Image">
-
 <div class="video-container">
     <iframe
-        src="https://www.dailymotion.com/embed/video/k1hfyk3ZCCYJDnGUCdw?queue-enable=false&endscreen-enable=false&sharing-enable=false&ui-logo=false"
-        allow="autoplay; fullscreen; picture-in-picture"
+        src="https://drive.google.com/file/d/1xphi8NVdWi1YEi88C-hHaWsJqQHQXAWW/preview"
+        allow="autoplay"
         allowfullscreen>
     </iframe>
 </div>
