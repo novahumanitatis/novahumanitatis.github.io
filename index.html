@@ -22,13 +22,15 @@ h1{
     letter-spacing:2px;
 }
 
+/* OLED FRAME */
+
 .monitor-frame{
 
     position:relative;
 
     display:inline-block;
 
-    padding:40px;
+    padding:30px;
 
     background:linear-gradient(
         135deg,
@@ -39,7 +41,7 @@ h1{
         #050505 100%
     );
 
-    border-radius:34px;
+    border-radius:32px;
 
     box-shadow:
         0 0 40px rgba(0,0,0,.65),
@@ -53,19 +55,19 @@ h1{
 
     position:absolute;
 
-    top:16px;
-    left:16px;
-    right:16px;
-    bottom:16px;
+    top:12px;
+    left:12px;
+    right:12px;
+    bottom:12px;
 
-    border-radius:22px;
+    border-radius:24px;
 
     border:1px solid rgba(255,255,255,.05);
 
     pointer-events:none;
-
-    z-index:5;
 }
+
+/* VIDEO AREA */
 
 .video-container{
 
@@ -73,41 +75,33 @@ h1{
 
     width:1200px;
     max-width:90vw;
+
+    background:#000;
+
+    border-radius:16px;
+
+    overflow:hidden;
 }
 
-.video-container iframe{
+/* SHRINK VIDEO INSIDE FRAME */
+
+.video-inner{
+
+    width:96%;
+    margin:2%;
+}
+
+.video-inner iframe{
 
     display:block;
 
     width:100%;
+
     aspect-ratio:16/9;
 
     border:none;
 
-    border-radius:12px;
-}
-
-/* GOOGLEIUS TERMINATOR */
-
-.googleius-blocker{
-
-    position:absolute;
-
-    top:12px;
-    right:12px;
-
-    width:90px;
-    height:90px;
-
-    background:#000;
-
-    border-radius:12px;
-
-    z-index:9999;
-
-    pointer-events:none;
-
-    opacity:1;
+    border-radius:10px;
 }
 
 </style>
@@ -121,14 +115,16 @@ h1{
 
     <div class="video-container">
 
-        <iframe
-            src="https://drive.google.com/file/d/1vqgtaP1BuL1OukWM6_U_B5bNDmNkdTy0/preview"
-            allow="autoplay"
-            allowfullscreen
-            sandbox="allow-scripts allow-same-origin">
-        </iframe>
+        <div class="video-inner">
 
-        <div class="googleius-blocker"></div>
+            <iframe
+                src="https://drive.google.com/file/d/1vqgtaP1BuL1OukWM6_U_B5bNDmNkdTy0/preview"
+                allow="autoplay"
+                allowfullscreen
+                sandbox="allow-scripts allow-same-origin">
+            </iframe>
+
+        </div>
 
     </div>
 
