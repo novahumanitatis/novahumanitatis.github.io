@@ -35,8 +35,19 @@ h1{
     border:none;
 }
 
-</style>
+/* Cover Google's annoying popout icon */
 
+.icon-blocker{
+    position:absolute;
+    top:0;
+    right:0;
+    width:60px;
+    height:60px;
+    background:#07122a;
+    z-index:9999;
+}
+
+</style>
 </head>
 
 <body>
@@ -45,12 +56,14 @@ h1{
 
 <div class="video-container">
 
-<iframe
-    src="https://drive.google.com/file/d/1xphi8NVdWi1YEi88C-hHaWsJqQHQXAWW/preview"
-    allow="autoplay"
-    allowfullscreen
-    sandbox="allow-scripts allow-same-origin">
-</iframe>
+    <iframe
+        src="https://drive.google.com/file/d/1xphi8NVdWi1YEi88C-hHaWsJqQHQXAWW/preview"
+        allow="autoplay"
+        allowfullscreen
+        sandbox="allow-scripts allow-same-origin">
+    </iframe>
+
+    <div class="icon-blocker"></div>
 
 </div>
 
