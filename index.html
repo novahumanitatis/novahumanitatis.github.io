@@ -33,8 +33,6 @@ h1{
     aspect-ratio:16/9;
 }
 
-/* Google iframe */
-
 .video-container iframe{
     width:100%;
     height:100%;
@@ -42,7 +40,7 @@ h1{
     display:block;
 }
 
-/* Bluish metallic HUD corners */
+/* HUD CORNERS */
 
 .corner{
     position:absolute;
@@ -57,7 +55,7 @@ h1{
     left:-8px;
     border-top:3px solid #b8e0ff;
     border-left:3px solid #b8e0ff;
-    box-shadow:0 0 12px rgba(120,180,255,.7);
+    box-shadow:0 0 12px rgba(120,180,255,.8);
 }
 
 .tr-corner{
@@ -65,7 +63,7 @@ h1{
     right:-8px;
     border-top:3px solid #b8e0ff;
     border-right:3px solid #b8e0ff;
-    box-shadow:0 0 12px rgba(120,180,255,.7);
+    box-shadow:0 0 12px rgba(120,180,255,.8);
 }
 
 .bl-corner{
@@ -73,7 +71,7 @@ h1{
     left:-8px;
     border-bottom:3px solid #b8e0ff;
     border-left:3px solid #b8e0ff;
-    box-shadow:0 0 12px rgba(120,180,255,.7);
+    box-shadow:0 0 12px rgba(120,180,255,.8);
 }
 
 .br-corner{
@@ -81,63 +79,46 @@ h1{
     right:-8px;
     border-bottom:3px solid #b8e0ff;
     border-right:3px solid #b8e0ff;
-    box-shadow:0 0 12px rgba(120,180,255,.7);
+    box-shadow:0 0 12px rgba(120,180,255,.8);
 }
 
-/* Anti-Google Mr Squares */
+/* GOOGLEIUS CLONES */
 
-.fake-square{
+.clone{
     position:absolute;
-    width:42px;
-    height:42px;
-    background:rgba(0,0,0,.45);
-    border:1px solid rgba(255,255,255,.4);
+    width:32px;
+    height:32px;
+    background:rgba(0,0,0,.35);
+    border:1px solid rgba(255,255,255,.25);
     z-index:40;
     pointer-events:none;
 }
 
-/* Positions */
+.clone svg{
+    position:absolute;
+    left:5px;
+    top:5px;
+    width:22px;
+    height:22px;
+    opacity:.85;
+}
 
 .tl{
-    top:18px;
-    left:18px;
+    top:14px;
+    left:14px;
 }
 
 .bl{
-    bottom:18px;
-    left:18px;
+    bottom:14px;
+    left:14px;
 }
 
 .br{
-    bottom:18px;
-    right:18px;
+    bottom:14px;
+    right:14px;
 }
 
-/* Open-in-new style icon */
-
-.fake-square::before{
-    content:"";
-    position:absolute;
-    width:12px;
-    height:12px;
-    border-top:2px solid rgba(255,255,255,.9);
-    border-right:2px solid rgba(255,255,255,.9);
-    top:8px;
-    right:8px;
-}
-
-.fake-square::after{
-    content:"";
-    position:absolute;
-    width:14px;
-    height:14px;
-    border-left:2px solid rgba(255,255,255,.9);
-    border-bottom:2px solid rgba(255,255,255,.9);
-    left:10px;
-    bottom:8px;
-}
-
-/* Hover blocker over real Googleius */
+/* CONTAINMENT FIELD */
 
 .googleius-blocker{
     position:absolute;
@@ -159,8 +140,6 @@ h1{
 
 <div class="video-frame">
 
-    <!-- HUD Corners -->
-
     <div class="corner tl-corner"></div>
     <div class="corner tr-corner"></div>
     <div class="corner bl-corner"></div>
@@ -168,9 +147,29 @@ h1{
 
     <!-- Anti-Google Mr Squares -->
 
-    <div class="fake-square tl"></div>
-    <div class="fake-square bl"></div>
-    <div class="fake-square br"></div>
+    <div class="clone tl">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+            <path d="M14 3h7v7"/>
+            <path d="M21 3L10 14"/>
+            <path d="M21 14v7H3V3h7"/>
+        </svg>
+    </div>
+
+    <div class="clone bl">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+            <path d="M14 3h7v7"/>
+            <path d="M21 3L10 14"/>
+            <path d="M21 14v7H3V3h7"/>
+        </svg>
+    </div>
+
+    <div class="clone br">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+            <path d="M14 3h7v7"/>
+            <path d="M21 3L10 14"/>
+            <path d="M21 14v7H3V3h7"/>
+        </svg>
+    </div>
 
     <div class="video-container">
 
@@ -180,8 +179,6 @@ h1{
             allowfullscreen
             sandbox="allow-scripts allow-same-origin">
         </iframe>
-
-        <!-- Commander Googleius containment field -->
 
         <div class="googleius-blocker"></div>
 
