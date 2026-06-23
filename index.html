@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Nova Humanitatis</title>
 
 <style>
@@ -21,52 +22,36 @@ h1{
     margin-bottom:30px;
 }
 
-.cover{
+.video-container{
     width:90%;
-    max-width:960px;
-    border:3px solid white;
-    cursor:pointer;
-    transition:0.3s;
+    max-width:1200px;
+    margin:auto;
+    aspect-ratio:16/9;
 }
 
-.cover:hover{
-    transform:scale(1.01);
-}
-
-.watch-button{
-    display:inline-block;
-    margin-top:20px;
-    padding:15px 40px;
-    background:white;
-    color:#07122a;
-    text-decoration:none;
-    font-size:28px;
-    font-weight:bold;
-    border-radius:8px;
-}
-
-.watch-button:hover{
-    background:#dddddd;
+.video-container iframe{
+    width:100%;
+    height:100%;
+    border:none;
 }
 
 </style>
+
 </head>
 
 <body>
 
 <h1>Nova Humanitatis</h1>
 
-<a href="https://drive.google.com/file/d/1xphi8NVdWi1YEi88C-hHaWsJqQHQXAWW/view?usp=sharing" target="_blank">
-    <img src="Episode 1.png" class="cover" alt="Episode 1">
-</a>
+<div class="video-container">
 
-<br>
+<iframe
+src="https://drive.google.com/file/d/1xphi8NVdWi1YEi88C-hHaWsJqQHQXAWW/preview"
+allow="autoplay; fullscreen"
+allowfullscreen>
+</iframe>
 
-<a class="watch-button"
-   href="https://drive.google.com/file/d/1xphi8NVdWi1YEi88C-hHaWsJqQHQXAWW/view?usp=sharing"
-   target="_blank">
-   ▶ WATCH EPISODE 1
-</a>
+</div>
 
 </body>
 </html>
