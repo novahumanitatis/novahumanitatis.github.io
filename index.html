@@ -22,8 +22,6 @@ h1{
     letter-spacing:2px;
 }
 
-/* OUTER MONITOR */
-
 .monitor-frame{
 
     position:relative;
@@ -49,8 +47,6 @@ h1{
         inset 0 -1px 0 rgba(0,0,0,.7);
 }
 
-/* INNER BEZEL */
-
 .monitor-frame::before{
 
     content:"";
@@ -70,8 +66,6 @@ h1{
 
     z-index:5;
 }
-
-/* VIDEO */
 
 .video-container{
 
@@ -98,104 +92,6 @@ h1{
     border:none;
 }
 
-/* EDGE OVERLAYS */
-
-/* TOP */
-
-.monitor-top{
-
-    position:absolute;
-
-    top:0;
-    left:0;
-    right:0;
-
-    height:50px;
-
-    background:linear-gradient(
-        to bottom,
-        #000000,
-        #1a1a1a,
-        transparent
-    );
-
-    z-index:500;
-
-    pointer-events:none;
-}
-
-/* BOTTOM */
-
-.monitor-bottom{
-
-    position:absolute;
-
-    bottom:0;
-    left:0;
-    right:0;
-
-    height:50px;
-
-    background:linear-gradient(
-        to top,
-        #000000,
-        #1a1a1a,
-        transparent
-    );
-
-    z-index:500;
-
-    pointer-events:none;
-}
-
-/* LEFT */
-
-.monitor-left{
-
-    position:absolute;
-
-    top:0;
-    bottom:0;
-    left:0;
-
-    width:70px;
-
-    background:linear-gradient(
-        to right,
-        #000000,
-        #1a1a1a,
-        transparent
-    );
-
-    z-index:500;
-
-    pointer-events:none;
-}
-
-/* RIGHT */
-
-.monitor-right{
-
-    position:absolute;
-
-    top:0;
-    bottom:0;
-    right:0;
-
-    width:70px;
-
-    background:linear-gradient(
-        to left,
-        #000000,
-        #1a1a1a,
-        transparent
-    );
-
-    z-index:500;
-
-    pointer-events:none;
-}
-
 </style>
 </head>
 
@@ -210,14 +106,8 @@ h1{
         <iframe
             src="https://drive.google.com/file/d/1vqgtaP1BuL1OukWM6_U_B5bNDmNkdTy0/preview"
             allow="autoplay"
-            allowfullscreen
-            sandbox="allow-scripts allow-same-origin">
+            allowfullscreen>
         </iframe>
-
-        <div class="monitor-top"></div>
-        <div class="monitor-bottom"></div>
-        <div class="monitor-left"></div>
-        <div class="monitor-right"></div>
 
     </div>
 
