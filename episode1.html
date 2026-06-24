@@ -1,4 +1,4 @@
-Sure. Here is the full code with the right-click blocking removed. I left the scroll lock and everything else as it was.
+Yes. Start clean: no blockers, no right-click script, no control cover, no perimeter overlays. Same iframe `src`, `allow`, `allowfullscreen`, and `sandbox`.
 
 ```html
 <!DOCTYPE html>
@@ -11,137 +11,63 @@ Sure. Here is the full code with the right-click blocking removed. I left the sc
 <style>
 html,
 body {
-  overflow:hidden;
+  margin:0;
+  width:100%;
   height:100%;
+  overflow:hidden;
+  background:black;
+}
+
+body {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+}
+
+h1 {
+  color:white;
+  font-family:Arial,sans-serif;
+  font-size:clamp(32px,5vw,64px);
+  margin:10px 0 15px;
+  letter-spacing:2px;
+  flex:0 0 auto;
+}
+
+.video-wrap {
+  position:relative;
+  width:calc(100% - 20px);
+  max-width:960px;
+  aspect-ratio:16/9;
+  overflow:hidden;
+  border-radius:12px;
+  background:black;
+}
+
+.video-wrap iframe {
+  width:100%;
+  height:100%;
+  border:none;
+  display:block;
 }
 </style>
 </head>
 
-<body style="
-margin:0;
-background:black;
-text-align:center;
-overflow:hidden;
-height:100vh;
-">
+<body>
 
-<h1 style="
-color:white;
-font-family:Arial,sans-serif;
-font-size:clamp(32px,5vw,64px);
-margin-top:10px;
-margin-bottom:15px;
-letter-spacing:2px;
-">
-Nova Humanitatis
-</h1>
+<h1>Nova Humanitatis</h1>
 
-<div style="
-position:relative;
-width:100%;
-max-width:960px;
-margin:0 auto;
-padding:0 10px;
-box-sizing:border-box;
-">
-
-<div style="
-position:relative;
-width:100%;
-aspect-ratio:16/9;
-overflow:hidden;
-border-radius:12px;
-">
-
-<iframe
-src="https://drive.google.com/file/d/1XrXCgTw-69z-SIWrbhstVWfV9JoGnY6G/preview"
-style="
-width:100%;
-height:100%;
-border:none;
-display:block;
-"
-allow="autoplay; fullscreen"
-allowfullscreen
-sandbox="allow-scripts allow-same-origin allow-presentation">
-</iframe>
-
-<!-- Top perimeter -->
-<div style="
-position:absolute;
-top:0;
-left:0;
-width:calc(100% + 50px);
-height:15px;
-background:black;
-z-index:99998;
-pointer-events:none;
-"></div>
-
-<!-- Bottom perimeter -->
-<div style="
-position:absolute;
-bottom:0;
-left:0;
-width:calc(100% + 50px);
-height:15px;
-background:black;
-z-index:99998;
-pointer-events:none;
-"></div>
-
-<!-- Left perimeter -->
-<div style="
-position:absolute;
-top:0;
-left:0;
-width:15px;
-height:100%;
-background:black;
-z-index:99998;
-pointer-events:none;
-"></div>
-
-<!-- Right perimeter -->
-<div style="
-position:absolute;
-top:0;
-right:-10px;
-width:60px;
-bottom:85px;
-background:black;
-z-index:99998;
-pointer-events:none;
-"></div>
-
-<!-- Blocker square -->
-<div style="
-position:absolute;
-top:-10px;
-right:-10px;
-width:60px;
-height:60px;
-background:black;
-z-index:99999;
-pointer-events:auto;
-cursor:default;
-">
+<div class="video-wrap">
+  <iframe
+    src="https://drive.google.com/file/d/1XrXCgTw-69z-SIWrbhstVWfV9JoGnY6G/preview"
+    allow="autoplay; fullscreen"
+    allowfullscreen
+    sandbox="allow-scripts allow-same-origin allow-presentation">
+  </iframe>
 </div>
-
-</div>
-
-</div>
-
-<script>
-document.addEventListener('wheel', function(event) {
-  event.preventDefault();
-}, { passive: false });
-
-document.addEventListener('touchmove', function(event) {
-  event.preventDefault();
-}, { passive: false });
-</script>
 
 </body>
 </html>
 ```
+
+This removes the pieces most likely causing the mobile fading/blocked control behavior.
