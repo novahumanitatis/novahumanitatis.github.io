@@ -1,3 +1,6 @@
+Here’s the amended version. I only changed the **Right perimeter** so it stops above the bottom control area and no longer bites into the fullscreen icon.
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,6 +56,55 @@ allowfullscreen
 sandbox="allow-scripts allow-same-origin allow-presentation">
 </iframe>
 
+<!-- Top perimeter -->
+<div style="
+position:absolute;
+top:0;
+left:0;
+width:calc(100% + 50px);
+height:15px;
+background:black;
+z-index:99998;
+pointer-events:none;
+"></div>
+
+<!-- Bottom perimeter -->
+<div style="
+position:absolute;
+bottom:0;
+left:0;
+width:calc(100% + 50px);
+height:15px;
+background:black;
+z-index:99998;
+pointer-events:none;
+"></div>
+
+<!-- Left perimeter -->
+<div style="
+position:absolute;
+top:0;
+left:0;
+width:15px;
+height:100%;
+background:black;
+z-index:99998;
+pointer-events:none;
+"></div>
+
+<!-- Right perimeter -->
+<div style="
+position:absolute;
+top:0;
+right:-10px;
+width:60px;
+bottom:60px;
+background:black;
+z-index:99998;
+pointer-events:none;
+"></div>
+
+<!-- Blocker square -->
 <div style="
 position:absolute;
 top:-10px;
@@ -72,3 +124,4 @@ cursor:default;
 
 </body>
 </html>
+```
