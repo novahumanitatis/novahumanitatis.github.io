@@ -1,5 +1,3 @@
-Yes. Start clean: no blockers, no right-click script, no control cover, no perimeter overlays. Same iframe `src`, `allow`, `allowfullscreen`, and `sandbox`.
-
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -34,21 +32,22 @@ h1 {
   flex:0 0 auto;
 }
 
-.video-wrap {
+.player {
   position:relative;
   width:calc(100% - 20px);
   max-width:960px;
   aspect-ratio:16/9;
+  background:black;
   overflow:hidden;
   border-radius:12px;
-  background:black;
 }
 
-.video-wrap iframe {
+.player iframe {
   width:100%;
   height:100%;
   border:none;
   display:block;
+  background:black;
 }
 </style>
 </head>
@@ -57,7 +56,7 @@ h1 {
 
 <h1>Nova Humanitatis</h1>
 
-<div class="video-wrap">
+<div class="player">
   <iframe
     src="https://drive.google.com/file/d/1XrXCgTw-69z-SIWrbhstVWfV9JoGnY6G/preview"
     allow="autoplay; fullscreen"
@@ -69,5 +68,3 @@ h1 {
 </body>
 </html>
 ```
-
-This removes the pieces most likely causing the mobile fading/blocked control behavior.
