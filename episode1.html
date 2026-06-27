@@ -22,18 +22,18 @@ body{
     text-align:center;
     font-family:Arial,sans-serif;
     min-height:100vh;
-    padding:20px 0;
+    padding:24px 0 36px;
     box-sizing:border-box;
 }
 
 h1{
     color:#ffffff;
     font-size:clamp(32px,5vw,64px);
-    margin:0 0 20px;
+    margin:0 0 16px;
 }
 
 .player{
-    width:min(960px, calc(100% - 20px));
+    width:min(900px, calc(100% - 32px), calc((100vh - 150px) * 16 / 9));
     aspect-ratio:16/9;
     border-radius:12px;
     overflow:hidden;
