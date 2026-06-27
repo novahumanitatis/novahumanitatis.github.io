@@ -124,6 +124,7 @@
     }
 
     .player {
+      position: relative;
       width: 100%;
       aspect-ratio: 16 / 9;
       border-radius: 12px;
@@ -136,6 +137,8 @@
     }
 
     .player iframe {
+      position: absolute;
+      inset: 0;
       width: 100%;
       height: 100%;
       border: 0;
@@ -197,10 +200,10 @@
     <section class="player-wrap" aria-label="Episode 1 video player">
       <div class="player">
         <iframe
-          src="https://player.mediadelivery.net/embed/690965/099e4e48-e66b-4433-8af5-f6b56ba62b8f?autoplay=false&loop=false&muted=false&preload=true&responsive=true"
+          src="https://iframe.mediadelivery.net/embed/690965/41ddaf5c-abb4-4ea6-b319-25516ec22f05?autoplay=false&loop=false&muted=false&preload=true&responsive=true"
           loading="lazy"
           allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen"
-          allowfullscreen>
+          allowfullscreen="true">
         </iframe>
       </div>
     </section>
