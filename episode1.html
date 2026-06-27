@@ -41,7 +41,7 @@
 
     .nav {
       position: fixed;
-      top: 24px;
+      top: 22px;
       right: 28px;
       z-index: 20;
       display: flex;
@@ -116,10 +116,10 @@
 
     .player-wrap {
       position: absolute;
-      top: 38px;
+      top: 104px;
       left: 50%;
       z-index: 5;
-      width: min(980px, calc(100vw - 32px), calc((100vh - 95px) * 16 / 9));
+      width: min(980px, calc(100vw - 32px), calc((100vh - 150px) * 16 / 9));
       transform: translateX(-50%);
       animation: riseIn 900ms ease both;
     }
@@ -167,8 +167,8 @@
 
     @media (max-width: 1200px) {
       .player-wrap {
-        top: 34px;
-        width: min(940px, calc(100vw - 32px), calc((100vh - 90px) * 16 / 9));
+        top: 112px;
+        width: min(940px, calc(100vw - 32px), calc((100vh - 170px) * 16 / 9));
       }
     }
 
@@ -188,8 +188,8 @@
       }
 
       .player-wrap {
-        top: 86px;
-        width: min(calc(100vw - 24px), calc((100vh - 126px) * 16 / 9));
+        top: 96px;
+        width: min(calc(100vw - 24px), calc((100vh - 150px) * 16 / 9));
       }
 
       .player {
