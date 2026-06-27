@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nova Humanitatis</title>
+  <title>Episode 1 - Praeludium | Nova Humanitatis</title>
 
   <style>
     * {
@@ -17,21 +17,15 @@
       width: 100%;
       height: 100%;
       overflow: hidden;
-      overscroll-behavior: none;
-      font-family: "Cinzel", "Georgia", serif;
-      color: #ffffff;
-      background: #02040a;
+      background: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
     }
 
     body {
-      position: fixed;
-      inset: 0;
       background-image:
-        linear-gradient(
-          rgba(0, 0, 0, 0.18),
-          rgba(0, 0, 0, 0.48)
-        ),
-        url("home.png");
+        linear-gradient(rgba(0, 0, 0, 0.26), rgba(0, 0, 0, 0.68)),
+        url("episodestem.png");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -42,14 +36,14 @@
       width: 100%;
       height: 100svh;
       overflow: hidden;
-      padding: 28px;
+      padding: 0 24px;
     }
 
     .nav {
       position: fixed;
-      top: 24px;
+      top: 22px;
       right: 28px;
-      z-index: 10;
+      z-index: 20;
       display: flex;
       gap: 14px;
       align-items: center;
@@ -60,11 +54,12 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-width: 118px;
-      padding: 13px 22px;
+      min-width: 104px;
+      padding: 13px 20px;
       color: #f7fbff;
       text-decoration: none;
-      font-size: 0.92rem;
+      font-family: "Cinzel", Georgia, serif;
+      font-size: 0.9rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       border: 1px solid rgba(255, 255, 255, 0.28);
@@ -73,19 +68,23 @@
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
       box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.26),
+        0 10px 30px rgba(0, 0, 0, 0.28),
         inset 0 1px 0 rgba(255, 255, 255, 0.28);
       overflow: hidden;
+      animation: floatPane 5.5s ease-in-out infinite;
       transition:
         transform 220ms ease,
         border-color 220ms ease,
         background 220ms ease,
         box-shadow 220ms ease;
-      animation: floatPane 5.5s ease-in-out infinite;
     }
 
     .nav a:nth-child(2) {
-      animation-delay: 700ms;
+      animation-delay: 500ms;
+    }
+
+    .nav a:nth-child(3) {
+      animation-delay: 1000ms;
     }
 
     .nav a::before {
@@ -115,30 +114,32 @@
       transform: translateX(120%);
     }
 
-    .hero {
+    .player-wrap {
       position: absolute;
-      left: clamp(24px, 6vw, 88px);
-      bottom: clamp(54px, 8svh, 92px);
-      max-width: 980px;
-      text-shadow: 0 4px 24px rgba(0, 0, 0, 0.78);
-      animation: riseIn 1100ms ease both;
+      top: 104px;
+      left: 50%;
+      z-index: 5;
+      width: min(980px, calc(100vw - 32px), calc((100svh - 150px) * 16 / 9));
+      transform: translateX(-50%);
     }
 
-    .hero h1 {
-      font-size: clamp(2.9rem, 7vw, 7.4rem);
-      line-height: 0.9;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
+    .player {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #000;
+      border: 1px solid rgba(255, 255, 255, 0.26);
+      box-shadow:
+        0 24px 70px rgba(0, 0, 0, 0.72),
+        0 0 44px rgba(90, 170, 255, 0.16);
     }
 
-    .hero p {
-      margin-top: 22px;
-      max-width: 900px;
-      font-family: "Trebuchet MS", Arial, sans-serif;
-      font-size: clamp(1rem, 2vw, 1.28rem);
-      line-height: 1.7;
-      color: rgba(246, 250, 255, 0.88);
+    .player iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
     }
 
     @keyframes floatPane {
@@ -151,60 +152,35 @@
       }
     }
 
-    @keyframes riseIn {
-      from {
-        opacity: 0;
-        transform: translateY(24px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
+    @media (max-width: 1200px) {
+      .player-wrap {
+        top: 112px;
+        width: min(940px, calc(100vw - 32px), calc((100svh - 170px) * 16 / 9));
       }
     }
 
-    @media (max-width: 900px) {
-      .hero {
-        bottom: clamp(72px, 10svh, 110px);
-      }
-
-      .hero h1 {
-        font-size: clamp(3rem, 8vw, 5.8rem);
-      }
-
-      .hero p {
-        max-width: 920px;
-      }
-    }
-
-    @media (max-width: 680px) {
-      .page {
-        padding: 18px;
-      }
-
+    @media (max-width: 720px) {
       .nav {
         top: 16px;
         right: 16px;
         left: 16px;
         justify-content: flex-end;
-        gap: 10px;
+        gap: 9px;
       }
 
       .nav a {
         min-width: 0;
-        padding: 11px 14px;
-        font-size: 0.76rem;
+        padding: 11px 12px;
+        font-size: 0.72rem;
       }
 
-      .hero {
-        left: 22px;
-        right: 22px;
-        bottom: 64px;
+      .player-wrap {
+        top: 96px;
+        width: min(calc(100vw - 24px), calc((100svh - 150px) * 16 / 9));
       }
 
-      .hero p {
-        max-width: 100%;
-        font-size: 0.98rem;
+      .player {
+        border-radius: 8px;
       }
     }
   </style>
@@ -213,15 +189,20 @@
 <body>
   <main class="page">
     <nav class="nav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
       <a href="episodes.html">Episodes</a>
       <a href="about.html">About</a>
     </nav>
 
-    <section class="hero">
-      <h1>Nova Humanitatis</h1>
-      <p>
-        A cinematic journey through humanity, memory, civilization, and the stars.
-      </p>
+    <section class="player-wrap" aria-label="Episode 1 video player">
+      <div class="player">
+        <iframe
+          src="https://player.mediadelivery.net/embed/690965/099e4e48-e66b-4433-8af5-f6b56ba62b8f?autoplay=false&loop=false&muted=false&preload=true&responsive=true"
+          loading="lazy"
+          allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen"
+          allowfullscreen>
+        </iframe>
+      </div>
     </section>
   </main>
 </body>
