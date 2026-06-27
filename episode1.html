@@ -1,66 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nova Humanitatis</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Episode 1 - Praeludium | Nova Humanitatis</title>
 
-<style>
-html,
-body{
-    margin:0;
-    width:100%;
-    height:100%;
-    background:#000000;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-body{
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    font-family:Arial,sans-serif;
-    min-height:100vh;
-    padding:24px 0 36px;
-    box-sizing:border-box;
-}
+    html,
+    body {
+      width: 100%;
+      min-height: 100%;
+      background: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+    }
 
-h1{
-    color:#ffffff;
-    font-size:clamp(32px,5vw,64px);
-    margin:0 0 16px;
-}
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      background-image:
+        linear-gradient(rgba(0, 0, 0, 0.26), rgba(0, 0, 0, 0.68)),
+        url("episodestem.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
 
-.player{
-    width:min(900px, calc(100% - 32px), calc((100vh - 150px) * 16 / 9));
-    aspect-ratio:16/9;
-    border-radius:12px;
-    overflow:hidden;
-    background:#000;
-}
+    .page {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 110px 24px 42px;
+    }
 
-.player iframe{
-    width:100%;
-    height:100%;
-    border:0;
-    display:block;
-}
-</style>
+    .nav {
+      position: fixed;
+      top: 24px;
+      right: 28px;
+      z-index: 20;
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .nav a {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 104px;
+      padding: 13px 20px;
+      color: #f7fbff;
+      text-decoration: none;
+      font-family: "Cinzel", Georgia, serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.10);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.28);
+      overflow: hidden;
+      animation: floatPane 5.5s ease-in-out infinite;
+      transition:
+        transform 220ms ease,
+        border-color 220ms ease,
+        background 220ms ease,
+        box-shadow 220ms ease;
+    }
+
+    .nav a:nth-child(2) {
+      animation-delay: 500ms;
+    }
+
+    .nav a:nth-child(3) {
+      animation-delay: 1000ms;
+    }
+
+    .nav a::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        115deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.38) 45%,
+        transparent 72%
+      );
+      transform: translateX(-120%);
+      transition: transform 520ms ease;
+    }
+
+    .nav a:hover {
+      transform: translateY(-4px) scale(1.035);
+      border-color: rgba(255, 255, 255, 0.56);
+      background: rgba(255, 255, 255, 0.18);
+      box-shadow:
+        0 16px 42px rgba(47, 159, 255, 0.24),
+        inset 0 1px 0 rgba(255, 255, 255, 0.42);
+    }
+
+    .nav a:hover::before {
+      transform: translateX(120%);
+    }
+
+    .player-wrap {
+      position: relative;
+      z-index: 5;
+      width: min(980px, calc(100vw - 32px));
+      animation: riseIn 900ms ease both;
+    }
+
+    .player {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #000;
+      border: 1px solid rgba(255, 255, 255, 0.26);
+      box-shadow:
+        0 24px 70px rgba(0, 0, 0, 0.72),
+        0 0 44px rgba(90, 170, 255, 0.16);
+    }
+
+    .player iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+
+    @keyframes floatPane {
+      0%,
+      100% {
+        translate: 0 0;
+      }
+
+      50% {
+        translate: 0 -6px;
+      }
+    }
+
+    @keyframes riseIn {
+      from {
+        opacity: 0;
+        transform: translateY(22px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 720px) {
+      .page {
+        align-items: center;
+        padding: 104px 16px 30px;
+      }
+
+      .nav {
+        top: 16px;
+        right: 16px;
+        left: 16px;
+        justify-content: flex-end;
+        gap: 9px;
+      }
+
+      .nav a {
+        min-width: 0;
+        padding: 11px 12px;
+        font-size: 0.72rem;
+      }
+
+      .player-wrap {
+        width: 100%;
+      }
+
+      .player {
+        border-radius: 8px;
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <main class="page">
+    <nav class="nav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="episodes.html">Episodes</a>
+      <a href="about.html">About</a>
+    </nav>
 
-<h1>Nova Humanitatis</h1>
-
-<div class="player">
-    <iframe
-        src="https://player.mediadelivery.net/embed/690965/73ed8702-621b-4c98-8fa0-00c7a2b765ca?autoplay=false&loop=false&muted=false&preload=true&responsive=true"
-        loading="lazy"
-        allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen"
-        allowfullscreen>
-    </iframe>
-</div>
-
+    <section class="player-wrap" aria-label="Episode 1 video player">
+      <div class="player">
+        <iframe
+          src="https://player.mediadelivery.net/embed/690965/73ed8702-621b-4c98-8fa0-00c7a2b765ca?autoplay=false&loop=false&muted=false&preload=true&responsive=true"
+          loading="lazy"
+          allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
