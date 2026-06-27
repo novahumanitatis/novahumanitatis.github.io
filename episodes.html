@@ -1,6 +1,3 @@
-Absolutely. Here is the full updated `episodes.html` with the larger floating Episode 1 glass tab and a much more visible `episode1.png` image.
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -122,8 +119,8 @@ Absolutely. Here is the full updated `episodes.html` with the larger floating Ep
     .content {
       min-height: 100vh;
       display: flex;
-      align-items: center;
-      padding: 110px clamp(18px, 6vw, 88px) 56px;
+      align-items: flex-start;
+      padding: 120px clamp(18px, 6vw, 88px) 56px;
     }
 
     .episodes {
@@ -202,25 +199,13 @@ Absolutely. Here is the full updated `episodes.html` with the larger floating Ep
     }
 
     @keyframes floatPane {
-      0%,
-      100% {
-        translate: 0 0;
-      }
-
-      50% {
-        translate: 0 -6px;
-      }
+      0%, 100% { translate: 0 0; }
+      50% { translate: 0 -6px; }
     }
 
     @keyframes floatCard {
-      0%,
-      100% {
-        translate: 0 0;
-      }
-
-      50% {
-        translate: 0 -8px;
-      }
+      0%, 100% { translate: 0 0; }
+      50% { translate: 0 -8px; }
     }
 
     @keyframes riseIn {
@@ -255,8 +240,7 @@ Absolutely. Here is the full updated `episodes.html` with the larger floating Ep
       }
 
       .content {
-        align-items: flex-end;
-        padding: 96px 4px 34px;
+        padding: 104px 4px 34px;
       }
 
       h1 {
@@ -268,10 +252,6 @@ Absolutely. Here is the full updated `episodes.html` with the larger floating Ep
         gap: 18px;
         padding: 16px;
         min-height: auto;
-      }
-
-      .episode-image {
-        max-height: none;
       }
     }
   </style>
@@ -305,4 +285,3 @@ Absolutely. Here is the full updated `episodes.html` with the larger floating Ep
   </main>
 </body>
 </html>
-```
