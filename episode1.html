@@ -37,9 +37,9 @@
       height: 100vh;
       overflow: hidden;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: center;
-      padding: 104px 24px 52px;
+      padding: clamp(118px, 16vh, 150px) 24px 24px;
     }
 
     .nav {
@@ -118,11 +118,9 @@
     }
 
     .player-wrap {
-      --player-lift: -58px;
       position: relative;
       z-index: 5;
-      width: min(980px, calc(100vw - 32px), calc((100vh - 230px) * 16 / 9));
-      transform: translateY(var(--player-lift));
+      width: min(980px, calc(100vw - 32px), calc((100vh - 180px) * 16 / 9));
       animation: riseIn 900ms ease both;
     }
 
@@ -153,29 +151,28 @@
     @keyframes riseIn {
       from {
         opacity: 0;
-        transform: translateY(calc(var(--player-lift) + 22px));
+        transform: translateY(22px);
       }
 
       to {
         opacity: 1;
-        transform: translateY(var(--player-lift));
+        transform: translateY(0);
       }
     }
 
     @media (max-width: 920px) {
       .page {
-        padding: 96px 16px 40px;
+        padding-top: clamp(96px, 12vh, 120px);
       }
 
       .player-wrap {
-        --player-lift: -72px;
-        width: min(940px, calc(100vw - 32px), calc((100vh - 245px) * 16 / 9));
+        width: min(940px, calc(100vw - 32px), calc((100vh - 150px) * 16 / 9));
       }
     }
 
     @media (max-width: 720px) {
       .page {
-        padding: 104px 16px 30px;
+        padding: 104px 16px 24px;
       }
 
       .nav {
@@ -193,8 +190,7 @@
       }
 
       .player-wrap {
-        --player-lift: -48px;
-        width: min(100%, calc((100vh - 220px) * 16 / 9));
+        width: min(100%, calc((100vh - 160px) * 16 / 9));
       }
 
       .player {
