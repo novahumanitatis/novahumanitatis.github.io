@@ -1,3 +1,6 @@
+Absolutely. Here is the full updated `episodes.html` with the larger floating Episode 1 glass tab and a much more visible `episode1.png` image.
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -124,7 +127,7 @@
     }
 
     .episodes {
-      width: min(760px, 100%);
+      width: min(1100px, 100%);
       animation: riseIn 1100ms ease both;
     }
 
@@ -150,18 +153,20 @@
 
     .episode-card {
       display: grid;
-      grid-template-columns: minmax(150px, 230px) 1fr;
-      gap: 22px;
+      grid-template-columns: minmax(260px, 420px) 1fr;
+      gap: 28px;
       align-items: center;
-      width: min(680px, 100%);
-      min-height: 178px;
-      padding: 18px;
+      width: min(980px, 100%);
+      min-height: 300px;
+      padding: 24px;
       animation: floatCard 6s ease-in-out infinite;
     }
 
     .episode-image {
+      position: relative;
+      z-index: 1;
       width: 100%;
-      aspect-ratio: 16 / 10;
+      aspect-ratio: 16 / 9;
       object-fit: cover;
       border-radius: 6px;
       border: 1px solid rgba(255, 255, 255, 0.22);
@@ -183,16 +188,16 @@
     }
 
     .episode-title {
-      font-size: clamp(1.45rem, 3vw, 2.25rem);
+      font-size: clamp(1.8rem, 4vw, 3rem);
       line-height: 1.08;
       letter-spacing: 0.03em;
     }
 
     .episode-note {
-      margin-top: 12px;
+      margin-top: 14px;
       font-family: "Trebuchet MS", Arial, sans-serif;
-      font-size: 0.98rem;
-      line-height: 1.55;
+      font-size: 1.05rem;
+      line-height: 1.6;
       color: rgba(246, 250, 255, 0.82);
     }
 
@@ -260,12 +265,13 @@
 
       .episode-card {
         grid-template-columns: 1fr;
-        gap: 16px;
-        padding: 14px;
+        gap: 18px;
+        padding: 16px;
+        min-height: auto;
       }
 
       .episode-image {
-        max-height: 210px;
+        max-height: none;
       }
     }
   </style>
@@ -299,3 +305,4 @@
   </main>
 </body>
 </html>
+```
