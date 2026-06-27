@@ -121,7 +121,6 @@
       z-index: 5;
       width: min(980px, calc(100vw - 32px), calc((100vh - 150px) * 16 / 9));
       transform: translateX(-50%);
-      animation: riseIn 900ms ease both;
     }
 
     .player {
@@ -150,18 +149,6 @@
 
       50% {
         translate: 0 -6px;
-      }
-    }
-
-    @keyframes riseIn {
-      from {
-        opacity: 0;
-        transform: translateX(-50%) translateY(22px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateX(-50%) translateY(0);
       }
     }
 
