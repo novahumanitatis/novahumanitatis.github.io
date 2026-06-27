@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Episodes | Nova Humanitatis</title>
+  <title>Episode 1 - Praeludium | Nova Humanitatis</title>
 
   <style>
     * {
@@ -15,18 +15,17 @@
     html,
     body {
       width: 100%;
-      min-height: 100%;
-      font-family: "Cinzel", "Georgia", serif;
-      color: #ffffff;
-      background: #02040a;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
     }
 
     body {
-      min-height: 100vh;
-      overflow-x: hidden;
       background-image:
-        linear-gradient(rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.62)),
-        url("episodes.png");
+        linear-gradient(rgba(0, 0, 0, 0.26), rgba(0, 0, 0, 0.68)),
+        url("episodestem.png");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -34,25 +33,35 @@
 
     .page {
       position: relative;
-      min-height: 100vh;
-      padding: 28px;
+      width: 100%;
+      height: 100svh;
+      overflow: hidden;
+      padding: 0 24px;
     }
 
     .nav {
       position: fixed;
-      top: 24px;
+      top: 22px;
       right: 28px;
-      z-index: 10;
+      z-index: 20;
       display: flex;
       gap: 14px;
       align-items: center;
     }
 
-    .nav a,
-    .episode-card {
+    .nav a {
       position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 104px;
+      padding: 13px 20px;
       color: #f7fbff;
       text-decoration: none;
+      font-family: "Cinzel", Georgia, serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
       border: 1px solid rgba(255, 255, 255, 0.28);
       border-radius: 8px;
       background: rgba(255, 255, 255, 0.10);
@@ -62,6 +71,7 @@
         0 10px 30px rgba(0, 0, 0, 0.28),
         inset 0 1px 0 rgba(255, 255, 255, 0.28);
       overflow: hidden;
+      animation: floatPane 5.5s ease-in-out infinite;
       transition:
         transform 220ms ease,
         border-color 220ms ease,
@@ -69,24 +79,15 @@
         box-shadow 220ms ease;
     }
 
-    .nav a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 104px;
-      padding: 13px 22px;
-      font-size: 0.92rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      animation: floatPane 5.5s ease-in-out infinite;
-    }
-
     .nav a:nth-child(2) {
-      animation-delay: 700ms;
+      animation-delay: 500ms;
     }
 
-    .nav a::before,
-    .episode-card::before {
+    .nav a:nth-child(3) {
+      animation-delay: 1000ms;
+    }
+
+    .nav a::before {
       content: "";
       position: absolute;
       inset: 0;
@@ -97,161 +98,92 @@
         transparent 72%
       );
       transform: translateX(-120%);
-      transition: transform 560ms ease;
-      pointer-events: none;
+      transition: transform 520ms ease;
     }
 
-    .nav a:hover,
-    .episode-card:hover {
-      transform: translateY(-4px) scale(1.025);
+    .nav a:hover {
+      transform: translateY(-4px) scale(1.035);
       border-color: rgba(255, 255, 255, 0.56);
       background: rgba(255, 255, 255, 0.18);
       box-shadow:
-        0 18px 46px rgba(47, 159, 255, 0.24),
+        0 16px 42px rgba(47, 159, 255, 0.24),
         inset 0 1px 0 rgba(255, 255, 255, 0.42);
     }
 
-    .nav a:hover::before,
-    .episode-card:hover::before {
+    .nav a:hover::before {
       transform: translateX(120%);
     }
 
-    .content {
-      min-height: 100vh;
-      display: flex;
-      align-items: flex-start;
-      padding: 120px clamp(18px, 6vw, 88px) 56px;
+    .player-wrap {
+      position: absolute;
+      top: 104px;
+      left: 50%;
+      z-index: 5;
+      width: min(980px, calc(100vw - 32px), calc((100svh - 150px) * 16 / 9));
+      transform: translateX(-50%);
     }
 
-    .episodes {
-      width: min(1100px, 100%);
-      animation: riseIn 1100ms ease both;
-    }
-
-    .kicker {
-      margin-bottom: 18px;
-      font-family: "Trebuchet MS", Arial, sans-serif;
-      font-size: 0.82rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: rgba(246, 250, 255, 0.76);
-      text-shadow: 0 4px 18px rgba(0, 0, 0, 0.72);
-    }
-
-    h1 {
-      margin-bottom: 34px;
-      font-size: clamp(3rem, 7vw, 6.8rem);
-      line-height: 0.92;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      text-shadow: 0 5px 28px rgba(0, 0, 0, 0.82);
-    }
-
-    .episode-card {
-      display: grid;
-      grid-template-columns: minmax(260px, 420px) 1fr;
-      gap: 28px;
-      align-items: center;
-      width: min(980px, 100%);
-      min-height: 300px;
-      padding: 24px;
-      animation: floatCard 6s ease-in-out infinite;
-    }
-
-    .episode-image {
+    .player {
       position: relative;
-      z-index: 1;
       width: 100%;
       aspect-ratio: 16 / 9;
-      object-fit: cover;
-      border-radius: 6px;
-      border: 1px solid rgba(255, 255, 255, 0.22);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.38);
+      border-radius: 12px;
+      overflow: hidden;
+      background: #000;
+      border: 1px solid rgba(255, 255, 255, 0.26);
+      box-shadow:
+        0 24px 70px rgba(0, 0, 0, 0.72),
+        0 0 44px rgba(90, 170, 255, 0.16);
     }
 
-    .episode-copy {
-      position: relative;
-      z-index: 1;
-    }
-
-    .episode-label {
-      margin-bottom: 9px;
-      font-family: "Trebuchet MS", Arial, sans-serif;
-      font-size: 0.78rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: rgba(210, 230, 255, 0.82);
-    }
-
-    .episode-title {
-      font-size: clamp(1.8rem, 4vw, 3rem);
-      line-height: 1.08;
-      letter-spacing: 0.03em;
-    }
-
-    .episode-note {
-      margin-top: 14px;
-      font-family: "Trebuchet MS", Arial, sans-serif;
-      font-size: 1.05rem;
-      line-height: 1.6;
-      color: rgba(246, 250, 255, 0.82);
+    .player iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
     }
 
     @keyframes floatPane {
-      0%, 100% { translate: 0 0; }
-      50% { translate: 0 -6px; }
-    }
-
-    @keyframes floatCard {
-      0%, 100% { translate: 0 0; }
-      50% { translate: 0 -8px; }
-    }
-
-    @keyframes riseIn {
-      from {
-        opacity: 0;
-        transform: translateY(24px);
+      0%, 100% {
+        translate: 0 0;
       }
 
-      to {
-        opacity: 1;
-        transform: translateY(0);
+      50% {
+        translate: 0 -6px;
+      }
+    }
+
+    @media (max-width: 1200px) {
+      .player-wrap {
+        top: 112px;
+        width: min(940px, calc(100vw - 32px), calc((100svh - 170px) * 16 / 9));
       }
     }
 
     @media (max-width: 720px) {
-      .page {
-        padding: 18px;
-      }
-
       .nav {
         top: 16px;
         right: 16px;
         left: 16px;
         justify-content: flex-end;
-        gap: 10px;
+        gap: 9px;
       }
 
       .nav a {
         min-width: 0;
-        padding: 11px 14px;
-        font-size: 0.76rem;
+        padding: 11px 12px;
+        font-size: 0.72rem;
       }
 
-      .content {
-        padding: 104px 4px 34px;
+      .player-wrap {
+        top: 96px;
+        width: min(calc(100vw - 24px), calc((100svh - 150px) * 16 / 9));
       }
 
-      h1 {
-        margin-bottom: 24px;
-      }
-
-      .episode-card {
-        grid-template-columns: 1fr;
-        gap: 18px;
-        padding: 16px;
-        min-height: auto;
+      .player {
+        border-radius: 8px;
       }
     }
   </style>
@@ -261,25 +193,18 @@
   <main class="page">
     <nav class="nav" aria-label="Main navigation">
       <a href="index.html">Home</a>
+      <a href="episodes.html">Episodes</a>
       <a href="about.html">About</a>
     </nav>
 
-    <section class="content">
-      <div class="episodes">
-        <p class="kicker">The Series</p>
-        <h1>Episodes</h1>
-
-        <a class="episode-card" href="episode1.html" aria-label="Open Episode 1 - Praeludium">
-          <img class="episode-image" src="episode1.png" alt="Episode 1 - Praeludium" />
-
-          <div class="episode-copy">
-            <p class="episode-label">Episode 1</p>
-            <h2 class="episode-title">Praeludium</h2>
-            <p class="episode-note">
-              The opening movement of Nova Humanitatis.
-            </p>
-          </div>
-        </a>
+    <section class="player-wrap" aria-label="Episode 1 video player">
+      <div class="player">
+        <iframe
+          src="https://iframe.mediadelivery.net/embed/690965/7dffab31-98e9-4088-a051-d7e2c3e9bec5?autoplay=false&loop=false&muted=false&preload=false&responsive=true"
+          loading="lazy"
+          allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen"
+          allowfullscreen="true">
+        </iframe>
       </div>
     </section>
   </main>
