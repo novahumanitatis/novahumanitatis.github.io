@@ -23,7 +23,6 @@
     }
 
     body {
-      min-height: 100vh;
       background-image:
         linear-gradient(rgba(0, 0, 0, 0.26), rgba(0, 0, 0, 0.68)),
         url("episodestem.png");
@@ -40,7 +39,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 92px 24px 42px;
+      padding: 104px 24px 52px;
     }
 
     .nav {
@@ -119,10 +118,11 @@
     }
 
     .player-wrap {
+      --player-lift: -58px;
       position: relative;
       z-index: 5;
-      width: min(980px, calc(100vw - 32px));
-      transform: translateY(-34px);
+      width: min(980px, calc(100vw - 32px), calc((100vh - 230px) * 16 / 9));
+      transform: translateY(var(--player-lift));
       animation: riseIn 900ms ease both;
     }
 
@@ -146,42 +146,36 @@
     }
 
     @keyframes floatPane {
-      0%,
-      100% {
-        translate: 0 0;
-      }
-
-      50% {
-        translate: 0 -6px;
-      }
+      0%, 100% { translate: 0 0; }
+      50% { translate: 0 -6px; }
     }
 
     @keyframes riseIn {
       from {
         opacity: 0;
-        transform: translateY(22px);
+        transform: translateY(calc(var(--player-lift) + 22px));
       }
 
       to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(var(--player-lift));
       }
     }
 
     @media (max-width: 920px) {
       .page {
-        padding: 88px 16px 28px;
+        padding: 96px 16px 40px;
       }
 
       .player-wrap {
-        width: min(940px, calc(100vw - 32px));
-        transform: translateY(-48px);
+        --player-lift: -72px;
+        width: min(940px, calc(100vw - 32px), calc((100vh - 245px) * 16 / 9));
       }
     }
 
     @media (max-width: 720px) {
       .page {
-        padding: 96px 16px 24px;
+        padding: 104px 16px 30px;
       }
 
       .nav {
@@ -199,8 +193,8 @@
       }
 
       .player-wrap {
-        width: 100%;
-        transform: translateY(-36px);
+        --player-lift: -48px;
+        width: min(100%, calc((100vh - 220px) * 16 / 9));
       }
 
       .player {
