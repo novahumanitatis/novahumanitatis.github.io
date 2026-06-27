@@ -116,10 +116,10 @@
 
     .player-wrap {
       position: absolute;
-      top: clamp(86px, 10vh, 112px);
+      top: 38px;
       left: 50%;
       z-index: 5;
-      width: min(980px, calc(100vw - 32px), calc((100vh - 150px) * 16 / 9));
+      width: min(980px, calc(100vw - 32px), calc((100vh - 95px) * 16 / 9));
       transform: translateX(-50%);
       animation: riseIn 900ms ease both;
     }
@@ -165,10 +165,10 @@
       }
     }
 
-    @media (max-width: 920px) {
+    @media (max-width: 1200px) {
       .player-wrap {
-        top: 52px;
-        width: min(940px, calc(100vw - 32px), calc((100vh - 120px) * 16 / 9));
+        top: 34px;
+        width: min(940px, calc(100vw - 32px), calc((100vh - 90px) * 16 / 9));
       }
     }
 
