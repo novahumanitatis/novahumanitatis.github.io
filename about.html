@@ -31,6 +31,46 @@
       line-height: 1.65;
     }
 
+    .site-nav {
+      position: fixed;
+      top: 26px;
+      right: clamp(18px, 4vw, 48px);
+      z-index: 10;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      padding: 6px;
+      border: 1px solid rgba(237, 244, 255, 0.16);
+      background: rgba(5, 7, 11, 0.48);
+      backdrop-filter: blur(18px);
+    }
+
+    .site-nav a {
+      min-width: 74px;
+      padding: 9px 14px;
+      color: #dce8fb;
+      text-align: center;
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 750;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      border: 1px solid transparent;
+    }
+
+    .site-nav a:hover,
+    .site-nav a:focus-visible {
+      color: var(--text);
+      border-color: rgba(216, 184, 107, 0.44);
+      outline: none;
+    }
+
+    .site-nav a[aria-current="page"] {
+      color: var(--gold);
+      background: rgba(216, 184, 107, 0.12);
+      border-color: rgba(216, 184, 107, 0.34);
+    }
+
     .hero {
       position: relative;
       min-height: 92vh;
@@ -45,7 +85,7 @@
       position: absolute;
       inset: 0;
       z-index: -2;
-      background-image: url("nova-humanitatis-hero.png");
+      background-image: url("about.png");
       background-size: cover;
       background-position: center;
       transform: scale(1.02);
@@ -64,7 +104,7 @@
     .hero-inner {
       width: min(100% - 40px, var(--max));
       margin: 0 auto;
-      padding: 96px 0 72px;
+      padding: 112px 0 72px;
     }
 
     .kicker {
@@ -212,13 +252,24 @@
     }
 
     @media (max-width: 760px) {
+      .site-nav {
+        top: 14px;
+        right: 14px;
+      }
+
+      .site-nav a {
+        min-width: 64px;
+        padding: 8px 10px;
+        font-size: 0.7rem;
+      }
+
       .hero {
         min-height: 86vh;
       }
 
       .hero-inner {
         width: min(100% - 28px, var(--max));
-        padding: 84px 0 56px;
+        padding: 104px 0 56px;
       }
 
       .subtitle {
@@ -251,6 +302,11 @@
   </style>
 </head>
 <body>
+  <nav class="site-nav" aria-label="Primary navigation">
+    <a href="index.html">Home</a>
+    <a href="about.html" aria-current="page">About</a>
+  </nav>
+
   <header class="hero">
     <div class="hero-inner">
       <p class="kicker">Serialized Science Fiction</p>
@@ -326,4 +382,3 @@
   </footer>
 </body>
 </html>
-
