@@ -279,16 +279,16 @@
 
       .nav {
         top: 16px;
-        right: 16px;
-        left: 16px;
+        right: 10px;
+        left: 10px;
         justify-content: flex-end;
-        gap: 9px;
+        gap: 8px;
       }
 
       .nav a {
         min-width: 0;
-        padding: 11px 12px;
-        font-size: 0.72rem;
+        padding: 10px 11px;
+        font-size: 0.68rem;
       }
 
       .hero {
@@ -299,14 +299,19 @@
       .hero-content {
         width: min(100% - 28px, 560px);
         margin: 0 auto;
+        overflow-wrap: anywhere;
       }
 
       h1 {
-        font-size: clamp(4rem, 19vw, 6.2rem);
+        max-width: 100%;
+        font-size: clamp(3rem, 14.5vw, 4.7rem);
+        line-height: 0.92;
       }
 
       .subtitle {
-        font-size: 1.12rem;
+        max-width: 100%;
+        font-size: 1.06rem;
+        line-height: 1.52;
       }
 
       main,
