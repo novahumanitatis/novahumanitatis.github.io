@@ -26,7 +26,7 @@
       overflow-x: hidden;
       background-image:
         linear-gradient(rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.62)),
-        url("episodes.webp");
+        url("episodes.png");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -220,6 +220,19 @@
       }
     }
 
+    @media (max-width: 1200px) {
+      .episode-card {
+        animation: none;
+        transform: translateZ(0);
+        backface-visibility: hidden;
+        border-color: rgba(255, 255, 255, 0.18);
+        box-shadow:
+          0 10px 30px rgba(0, 0, 0, 0.28),
+          inset 0 0 0 1px rgba(255, 255, 255, 0.22),
+          inset 0 1px 0 rgba(255, 255, 255, 0.28);
+      }
+    }
+
     @media (max-width: 720px) {
       .page {
         padding: 18px;
@@ -270,7 +283,7 @@
         <h1>Episodes</h1>
 
         <a class="episode-card" href="episode1.html" aria-label="Open Episode 1 - Praeludium">
-          <img class="episode-image" src="episode1.webp" alt="Episode 1 - Praeludium" />
+          <img class="episode-image" src="episode1.png" alt="Episode 1 - Praeludium" />
 
           <div class="episode-copy">
             <p class="episode-label">Episode 1</p>
