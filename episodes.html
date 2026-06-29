@@ -48,11 +48,18 @@
       align-items: center;
     }
 
-    .nav a,
-    .episode-card {
+    .nav a {
       position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 104px;
+      padding: 13px 22px;
       color: #f7fbff;
       text-decoration: none;
+      font-size: 0.92rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
       border: 1px solid rgba(255, 255, 255, 0.28);
       border-radius: 8px;
       background: rgba(255, 255, 255, 0.10);
@@ -62,6 +69,7 @@
         0 10px 30px rgba(0, 0, 0, 0.28),
         inset 0 1px 0 rgba(255, 255, 255, 0.28);
       overflow: hidden;
+      animation: floatPane 5.5s ease-in-out infinite;
       transition:
         transform 220ms ease,
         border-color 220ms ease,
@@ -69,24 +77,11 @@
         box-shadow 220ms ease;
     }
 
-    .nav a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 104px;
-      padding: 13px 22px;
-      font-size: 0.92rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      animation: floatPane 5.5s ease-in-out infinite;
-    }
-
     .nav a:nth-child(2) {
       animation-delay: 700ms;
     }
 
-    .nav a::before,
-    .episode-card::before {
+    .nav a::before {
       content: "";
       position: absolute;
       inset: 0;
@@ -97,22 +92,16 @@
         transparent 72%
       );
       transform: translateX(-120%);
-      transition: transform 560ms ease;
-      pointer-events: none;
+      transition: transform 520ms ease;
     }
 
-    .nav a:hover,
-    .episode-card:hover {
-      transform: translateY(-4px) scale(1.025);
+    .nav a:hover {
+      transform: translateY(-4px) scale(1.035);
       border-color: rgba(255, 255, 255, 0.56);
       background: rgba(255, 255, 255, 0.18);
-      box-shadow:
-        0 18px 46px rgba(47, 159, 255, 0.24),
-        inset 0 1px 0 rgba(255, 255, 255, 0.42);
     }
 
-    .nav a:hover::before,
-    .episode-card:hover::before {
+    .nav a:hover::before {
       transform: translateX(120%);
     }
 
@@ -125,7 +114,6 @@
 
     .episodes {
       width: min(1100px, 100%);
-      animation: riseIn 1100ms ease both;
     }
 
     .kicker {
@@ -156,17 +144,39 @@
       width: min(980px, 100%);
       min-height: 300px;
       padding: 24px;
-      animation: floatCard 6s ease-in-out infinite;
+      color: #f7fbff;
+      text-decoration: none;
+      border-radius: 8px;
+      background: rgba(28, 30, 34, 0.86);
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.34),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+      transition:
+        transform 220ms ease,
+        border-color 220ms ease,
+        background 220ms ease,
+        box-shadow 220ms ease;
+    }
+
+    .episode-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(255, 255, 255, 0.42);
+      background: rgba(36, 39, 45, 0.9);
+      box-shadow:
+        0 16px 42px rgba(47, 159, 255, 0.18),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.12);
     }
 
     .episode-image {
-      position: relative;
-      z-index: 1;
       width: 100%;
       aspect-ratio: 16 / 9;
       object-fit: cover;
+      display: block;
       border-radius: 6px;
       border: 1px solid rgba(255, 255, 255, 0.22);
+      background: rgba(0, 0, 0, 0.35);
       box-shadow: 0 12px 30px rgba(0, 0, 0, 0.38);
     }
 
@@ -201,36 +211,6 @@
     @keyframes floatPane {
       0%, 100% { translate: 0 0; }
       50% { translate: 0 -6px; }
-    }
-
-    @keyframes floatCard {
-      0%, 100% { translate: 0 0; }
-      50% { translate: 0 -8px; }
-    }
-
-    @keyframes riseIn {
-      from {
-        opacity: 0;
-        transform: translateY(24px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @media (max-width: 1200px) {
-      .episode-card {
-        animation: none;
-        transform: translateZ(0);
-        backface-visibility: hidden;
-        border-color: rgba(255, 255, 255, 0.18);
-        box-shadow:
-          0 10px 30px rgba(0, 0, 0, 0.28),
-          inset 0 0 0 1px rgba(255, 255, 255, 0.22),
-          inset 0 1px 0 rgba(255, 255, 255, 0.28);
-      }
     }
 
     @media (max-width: 720px) {
@@ -283,7 +263,7 @@
         <h1>Episodes</h1>
 
         <a class="episode-card" href="episode1.html" aria-label="Open Episode 1 - Praeludium">
-          <img class="episode-image" src="episode1.png" alt="Episode 1 - Praeludium" />
+          <img class="episode-image" src="./episode1.webp?v=4" alt="Episode 1 - Praeludium" />
 
           <div class="episode-copy">
             <p class="episode-label">Episode 1</p>
