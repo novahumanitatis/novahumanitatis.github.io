@@ -62,23 +62,16 @@
       text-transform: uppercase;
       border: 1px solid rgba(255, 255, 255, 0.28);
       border-radius: 8px;
-      background: rgba(255, 255, 255, 0.10);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
+      background: rgba(28, 30, 34, 0.86);
       box-shadow:
         0 10px 30px rgba(0, 0, 0, 0.28),
-        inset 0 1px 0 rgba(255, 255, 255, 0.28);
+        inset 0 0 0 1px rgba(255, 255, 255, 0.08);
       overflow: hidden;
-      animation: floatPane 5.5s ease-in-out infinite;
       transition:
         transform 220ms ease,
         border-color 220ms ease,
         background 220ms ease,
         box-shadow 220ms ease;
-    }
-
-    .nav a:nth-child(2) {
-      animation-delay: 700ms;
     }
 
     .nav a::before {
@@ -96,9 +89,9 @@
     }
 
     .nav a:hover {
-      transform: translateY(-4px) scale(1.035);
-      border-color: rgba(255, 255, 255, 0.56);
-      background: rgba(255, 255, 255, 0.18);
+      transform: translateY(-3px);
+      border-color: rgba(255, 255, 255, 0.42);
+      background: rgba(36, 39, 45, 0.9);
     }
 
     .nav a:hover::before {
@@ -206,11 +199,6 @@
       font-size: 1.05rem;
       line-height: 1.6;
       color: rgba(246, 250, 255, 0.82);
-    }
-
-    @keyframes floatPane {
-      0%, 100% { translate: 0 0; }
-      50% { translate: 0 -6px; }
     }
 
     @media (max-width: 720px) {
