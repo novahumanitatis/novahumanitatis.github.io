@@ -28,12 +28,12 @@
       inset: 0;
       background-image:
         linear-gradient(
-          rgba(0, 0, 0, 0.18),
-          rgba(0, 0, 0, 0.48)
+          rgba(0, 0, 0, 0.04),
+          rgba(0, 0, 0, 0.16)
         ),
         url("home.webp");
       background-size: cover;
-      background-position: center;
+      background-position: center top;
       background-repeat: no-repeat;
     }
 
@@ -62,7 +62,7 @@
       justify-content: center;
       min-width: 118px;
       padding: 13px 22px;
-      color: #f7fbff;
+      color: #d8a327;
       text-decoration: none;
       font-size: 0.92rem;
       letter-spacing: 0.08em;
@@ -111,60 +111,6 @@
       transform: translateX(120%);
     }
 
-    .hero {
-      position: absolute;
-      top: clamp(42px, 6svh, 76px);
-      left: clamp(24px, 4vw, 54px);
-      max-width: min(820px, calc(100vw - 430px));
-      text-shadow: 0 4px 24px rgba(0, 0, 0, 0.78);
-      animation: riseIn 1100ms ease both;
-    }
-
-    .hero h1 {
-      font-size: clamp(3.4rem, 5.8vw, 6.2rem);
-      line-height: 0.86;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    .hero p {
-      margin-top: 24px;
-      max-width: 900px;
-      font-family: "Trebuchet MS", Arial, sans-serif;
-      font-size: clamp(1rem, 1.45vw, 1.24rem);
-      font-weight: 700;
-      line-height: 1.45;
-      color: rgba(246, 250, 255, 0.92);
-    }
-
-    @keyframes riseIn {
-      from {
-        opacity: 0;
-        transform: translateY(24px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @media (max-width: 1180px) {
-      .hero {
-        top: 42px;
-        max-width: calc(100vw - 48px);
-      }
-
-      .hero h1 {
-        font-size: clamp(3.1rem, 7.8vw, 5.8rem);
-      }
-
-      .hero p {
-        max-width: 850px;
-      }
-    }
-
     @media (max-width: 680px) {
       .page {
         padding: 18px;
@@ -183,24 +129,6 @@
         padding: 11px 14px;
         font-size: 0.76rem;
       }
-
-      .hero {
-        top: 92px;
-        left: 22px;
-        right: 34px;
-        max-width: none;
-      }
-
-      .hero h1 {
-        font-size: clamp(2.45rem, 11vw, 3.7rem);
-        line-height: 0.9;
-      }
-
-      .hero p {
-        margin-top: 18px;
-        max-width: 100%;
-        font-size: 0.98rem;
-      }
     }
   </style>
 </head>
@@ -208,16 +136,10 @@
 <body>
   <main class="page">
     <nav class="nav" aria-label="Main navigation">
+      <a href="stills.html">Stills</a>
       <a href="episodes.html">Episodes</a>
       <a href="about.html">About</a>
     </nav>
-
-    <section class="hero">
-      <h1>Nova Humanitatis</h1>
-      <p>
-        A cinematic journey through humanity, memory, civilization, and the stars.
-      </p>
-    </section>
   </main>
 </body>
 </html>
