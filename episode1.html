@@ -6,6 +6,12 @@
   <title>Episode 1 - Praeludium | Nova Humanitatis</title>
 
   <style>
+    :root {
+      --logo-gold: #d8bc6a;
+      --logo-gold-soft: rgba(216, 188, 106, 0.42);
+      --logo-gold-faint: rgba(216, 188, 106, 0.18);
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -56,18 +62,18 @@
       justify-content: center;
       min-width: 104px;
       padding: 13px 20px;
-      color: #f7fbff;
+      color: var(--logo-gold);
       text-decoration: none;
       font-family: "Cinzel", Georgia, serif;
       font-size: 0.9rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      border: 1px solid rgba(255, 255, 255, 0.28);
+      border: 1px solid var(--logo-gold-soft);
       border-radius: 8px;
       background: rgba(28, 30, 34, 0.86);
       box-shadow:
         0 10px 30px rgba(0, 0, 0, 0.28),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+        inset 0 0 0 1px var(--logo-gold-faint);
       overflow: hidden;
       transition:
         transform 220ms ease,
@@ -83,7 +89,7 @@
       background: linear-gradient(
         115deg,
         transparent 0%,
-        rgba(255, 255, 255, 0.38) 45%,
+        rgba(216, 188, 106, 0.32) 45%,
         transparent 72%
       );
       transform: translateX(-120%);
@@ -93,11 +99,11 @@
     .nav a:hover,
     .nav a:focus-visible {
       transform: translateY(-3px);
-      border-color: rgba(255, 255, 255, 0.42);
+      border-color: rgba(216, 188, 106, 0.68);
       background: rgba(36, 39, 45, 0.9);
       box-shadow:
-        0 16px 42px rgba(47, 159, 255, 0.18),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+        0 16px 42px rgba(216, 188, 106, 0.16),
+        inset 0 0 0 1px rgba(216, 188, 106, 0.22);
       outline: none;
     }
 
@@ -150,13 +156,13 @@
         right: 16px;
         left: 16px;
         justify-content: flex-end;
-        gap: 9px;
+        gap: 6px;
       }
 
       .nav a {
         min-width: 0;
-        padding: 11px 12px;
-        font-size: 0.72rem;
+        padding: 9px 8px;
+        font-size: 0.6rem;
       }
 
       .player-wrap {
@@ -175,6 +181,7 @@
   <main class="page">
     <nav class="nav" aria-label="Main navigation">
       <a href="index.html">Home</a>
+      <a href="stills.html">Stills</a>
       <a href="episodes.html">Episodes</a>
       <a href="about.html">About</a>
     </nav>
