@@ -315,13 +315,14 @@
       { src: "image10.webp", alt: "Nova Humanitatis still 10" }
     ];
 
+    const displayImages = [...images].reverse();
     let currentIndex = 0;
 
     const gallery = document.getElementById("gallery");
     const viewer = document.getElementById("viewer");
     const viewerImage = document.getElementById("viewerImage");
 
-    images.forEach((image, index) => {
+    displayImages.forEach((image, index) => {
       const button = document.createElement("button");
       button.type = "button";
       button.setAttribute("aria-label", "Open " + image.alt);
@@ -338,8 +339,8 @@
 
     function openViewer(index) {
       currentIndex = index;
-      viewerImage.src = images[currentIndex].src;
-      viewerImage.alt = images[currentIndex].alt;
+      viewerImage.src = displayImages[currentIndex].src;
+      viewerImage.alt = displayImages[currentIndex].alt;
       viewer.style.display = "flex";
     }
 
@@ -348,15 +349,15 @@
     }
 
     function nextImage() {
-      currentIndex = (currentIndex + 1) % images.length;
-      viewerImage.src = images[currentIndex].src;
-      viewerImage.alt = images[currentIndex].alt;
+      currentIndex = (currentIndex + 1) % displayImages.length;
+      viewerImage.src = displayImages[currentIndex].src;
+      viewerImage.alt = displayImages[currentIndex].alt;
     }
 
     function prevImage() {
-      currentIndex = (currentIndex - 1 + images.length) % images.length;
-      viewerImage.src = images[currentIndex].src;
-      viewerImage.alt = images[currentIndex].alt;
+      currentIndex = (currentIndex - 1 + displayImages.length) % displayImages.length;
+      viewerImage.src = displayImages[currentIndex].src;
+      viewerImage.alt = displayImages[currentIndex].alt;
     }
 
     document.addEventListener("keydown", function(event) {
