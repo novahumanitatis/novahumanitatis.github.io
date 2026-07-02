@@ -23,16 +23,15 @@
     body {
       width: 100%;
       min-height: 100%;
-      color: var(--logo-gold);
       background: #02040a;
-      font-family: "Cinzel", "Georgia", serif;
+      color: var(--logo-gold);
+      font-family: "Cinzel", Georgia, serif;
     }
 
     body {
-      min-height: 100vh;
       overflow-x: hidden;
       background-image:
-        linear-gradient(rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.72)),
+        linear-gradient(rgba(0, 0, 0, 0.24), rgba(0, 0, 0, 0.72)),
         url("stills.webp");
       background-size: cover;
       background-position: center;
@@ -41,7 +40,6 @@
     }
 
     .page {
-      position: relative;
       min-height: 100vh;
       padding: 28px;
     }
@@ -96,29 +94,21 @@
       transition: transform 520ms ease;
     }
 
-    .nav a:hover,
-    .nav a:focus-visible {
+    .nav a:hover {
       transform: translateY(-3px);
       border-color: rgba(184, 134, 36, 0.72);
       background: rgba(36, 39, 45, 0.9);
       box-shadow:
         0 16px 42px rgba(184, 134, 36, 0.16),
         inset 0 0 0 1px rgba(184, 134, 36, 0.24);
-      outline: none;
     }
 
-    .nav a:hover::before,
-    .nav a:focus-visible::before {
+    .nav a:hover::before {
       transform: translateX(120%);
     }
 
     .content {
-      min-height: 100vh;
-      padding: 120px clamp(18px, 6vw, 88px) 64px;
-    }
-
-    .heading {
-      width: min(1100px, 100%);
+      padding: 120px clamp(18px, 6vw, 88px) 70px;
     }
 
     .kicker {
@@ -132,7 +122,7 @@
     }
 
     h1 {
-      margin-bottom: 34px;
+      margin-bottom: 36px;
       color: var(--logo-gold);
       font-size: clamp(3rem, 7vw, 6.8rem);
       line-height: 0.92;
@@ -145,23 +135,22 @@
     }
 
     .gallery {
-      width: min(1200px, 100%);
+      width: min(1360px, 100%);
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 520px), 1fr));
+      gap: 26px;
     }
 
     .gallery button {
-      display: block;
       width: 100%;
-      padding: 0;
+      padding: 22px;
       border: 1px solid var(--logo-gold-soft);
       border-radius: 8px;
       background: rgba(28, 30, 34, 0.86);
       cursor: pointer;
       overflow: hidden;
       box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.34),
+        0 14px 36px rgba(0, 0, 0, 0.38),
         inset 0 0 0 1px var(--logo-gold-faint);
       transition:
         transform 220ms ease,
@@ -169,14 +158,12 @@
         box-shadow 220ms ease;
     }
 
-    .gallery button:hover,
-    .gallery button:focus-visible {
+    .gallery button:hover {
       transform: translateY(-3px);
       border-color: rgba(184, 134, 36, 0.72);
       box-shadow:
-        0 16px 42px rgba(184, 134, 36, 0.14),
+        0 18px 46px rgba(184, 134, 36, 0.14),
         inset 0 0 0 1px rgba(184, 134, 36, 0.24);
-      outline: none;
     }
 
     .gallery img {
@@ -184,6 +171,7 @@
       width: 100%;
       aspect-ratio: 16 / 9;
       object-fit: cover;
+      border-radius: 6px;
       background: #111;
     }
 
@@ -234,12 +222,6 @@
       user-select: none;
     }
 
-    .arrow:hover,
-    .close:hover {
-      border-color: rgba(184, 134, 36, 0.72);
-      background: rgba(36, 39, 45, 0.9);
-    }
-
     .arrow-left {
       left: 22px;
     }
@@ -272,11 +254,11 @@
       }
 
       .content {
-        padding: 104px 4px 34px;
+        padding: 104px 4px 36px;
       }
 
-      h1 {
-        margin-bottom: 24px;
+      .gallery button {
+        padding: 16px;
       }
 
       .arrow {
@@ -305,10 +287,8 @@
     </nav>
 
     <section class="content">
-      <div class="heading">
-        <p class="kicker">The Archive</p>
-        <h1>Stills</h1>
-      </div>
+      <p class="kicker">The Archive</p>
+      <h1>Stills</h1>
 
       <div class="gallery" id="gallery" aria-label="Nova Humanitatis stills gallery"></div>
     </section>
@@ -326,7 +306,13 @@
       { src: "stills-img/image1.webp", alt: "Nova Humanitatis still 1" },
       { src: "stills-img/image2.webp", alt: "Nova Humanitatis still 2" },
       { src: "stills-img/image3.webp", alt: "Nova Humanitatis still 3" },
-      { src: "stills-img/image4.webp", alt: "Nova Humanitatis still 4" }
+      { src: "stills-img/image4.webp", alt: "Nova Humanitatis still 4" },
+      { src: "stills-img/image5.webp", alt: "Nova Humanitatis still 5" },
+      { src: "stills-img/image6.webp", alt: "Nova Humanitatis still 6" },
+      { src: "stills-img/image7.webp", alt: "Nova Humanitatis still 7" },
+      { src: "stills-img/image8.webp", alt: "Nova Humanitatis still 8" },
+      { src: "stills-img/image9.webp", alt: "Nova Humanitatis still 9" },
+      { src: "stills-img/image10.webp", alt: "Nova Humanitatis still 10" }
     ];
 
     let currentIndex = 0;
