@@ -1,227 +1,399 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>Nova Humanitatis — Stills</title>
+  <title>Stills | Nova Humanitatis</title>
 
-<style>
-html,
-body{
-    margin:0;
-    min-height:100%;
-    background:#000000;
-    color:white;
-    font-family:Arial, sans-serif;
-}
-
-body{
-    text-align:center;
-}
-
-header{
-    padding:24px 20px 10px;
-}
-
-h1{
-    margin:0;
-    color:#d4af37;
-    font-size:clamp(34px, 5vw, 64px);
-    letter-spacing:2px;
-}
-
-nav{
-    margin-top:18px;
-}
-
-nav a{
-    color:white;
-    text-decoration:none;
-    margin:0 14px;
-    font-size:16px;
-    opacity:0.85;
-}
-
-nav a:hover{
-    color:#d4af37;
-}
-
-.gallery{
-    max-width:1200px;
-    margin:30px auto 60px;
-    padding:0 22px;
-    display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
-    gap:18px;
-}
-
-.gallery img{
-    width:100%;
-    aspect-ratio:16/9;
-    object-fit:cover;
-    border-radius:10px;
-    cursor:pointer;
-    background:#111;
-    transition:transform 0.25s ease, opacity 0.25s ease;
-}
-
-.gallery img:hover{
-    transform:scale(1.03);
-    opacity:0.9;
-}
-
-.viewer{
-    display:none;
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,0.94);
-    z-index:9999;
-    justify-content:center;
-    align-items:center;
-}
-
-.viewer img{
-    max-width:90vw;
-    max-height:84vh;
-    border-radius:10px;
-}
-
-.close{
-    position:absolute;
-    top:20px;
-    right:32px;
-    font-size:44px;
-    color:white;
-    cursor:pointer;
-    z-index:10001;
-}
-
-.close:hover{
-    color:#d4af37;
-}
-
-.arrow{
-    position:absolute;
-    top:50%;
-    transform:translateY(-50%);
-    font-size:56px;
-    color:white;
-    background:rgba(0,0,0,0.35);
-    border:none;
-    cursor:pointer;
-    padding:10px 18px;
-    border-radius:8px;
-    z-index:10001;
-    user-select:none;
-}
-
-.arrow:hover{
-    color:#d4af37;
-    background:rgba(255,255,255,0.08);
-}
-
-.arrow-left{
-    left:22px;
-}
-
-.arrow-right{
-    right:22px;
-}
-
-@media (max-width:700px){
-    .arrow{
-        font-size:40px;
-        padding:8px 14px;
+  <style>
+    :root {
+      --logo-gold: #b88624;
+      --logo-gold-soft: rgba(184, 134, 36, 0.44);
+      --logo-gold-faint: rgba(184, 134, 36, 0.18);
     }
 
-    .close{
-        font-size:36px;
-        right:20px;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
-}
-</style>
+
+    html,
+    body {
+      width: 100%;
+      min-height: 100%;
+      color: var(--logo-gold);
+      background: #02040a;
+      font-family: "Cinzel", "Georgia", serif;
+    }
+
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      background-image:
+        linear-gradient(rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.72)),
+        url("stills.webp");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
+    .page {
+      position: relative;
+      min-height: 100vh;
+      padding: 28px;
+    }
+
+    .nav {
+      position: fixed;
+      top: 24px;
+      right: 28px;
+      z-index: 20;
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .nav a {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 104px;
+      padding: 13px 20px;
+      color: var(--logo-gold);
+      text-decoration: none;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: 1px solid var(--logo-gold-soft);
+      border-radius: 8px;
+      background: rgba(28, 30, 34, 0.86);
+      box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.28),
+        inset 0 0 0 1px var(--logo-gold-faint);
+      overflow: hidden;
+      transition:
+        transform 220ms ease,
+        border-color 220ms ease,
+        background 220ms ease,
+        box-shadow 220ms ease;
+    }
+
+    .nav a::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        115deg,
+        transparent 0%,
+        rgba(184, 134, 36, 0.28) 45%,
+        transparent 72%
+      );
+      transform: translateX(-120%);
+      transition: transform 520ms ease;
+    }
+
+    .nav a:hover,
+    .nav a:focus-visible {
+      transform: translateY(-3px);
+      border-color: rgba(184, 134, 36, 0.72);
+      background: rgba(36, 39, 45, 0.9);
+      box-shadow:
+        0 16px 42px rgba(184, 134, 36, 0.16),
+        inset 0 0 0 1px rgba(184, 134, 36, 0.24);
+      outline: none;
+    }
+
+    .nav a:hover::before,
+    .nav a:focus-visible::before {
+      transform: translateX(120%);
+    }
+
+    .content {
+      min-height: 100vh;
+      padding: 120px clamp(18px, 6vw, 88px) 64px;
+    }
+
+    .heading {
+      width: min(1100px, 100%);
+    }
+
+    .kicker {
+      margin-bottom: 18px;
+      font-family: "Trebuchet MS", Arial, sans-serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--logo-gold);
+      text-shadow: 0 4px 18px rgba(0, 0, 0, 0.72);
+    }
+
+    h1 {
+      margin-bottom: 34px;
+      color: var(--logo-gold);
+      font-size: clamp(3rem, 7vw, 6.8rem);
+      line-height: 0.92;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      text-shadow:
+        0 5px 28px rgba(0, 0, 0, 0.82),
+        0 0 18px rgba(184, 134, 36, 0.18);
+    }
+
+    .gallery {
+      width: min(1200px, 100%);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+    }
+
+    .gallery button {
+      display: block;
+      width: 100%;
+      padding: 0;
+      border: 1px solid var(--logo-gold-soft);
+      border-radius: 8px;
+      background: rgba(28, 30, 34, 0.86);
+      cursor: pointer;
+      overflow: hidden;
+      box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.34),
+        inset 0 0 0 1px var(--logo-gold-faint);
+      transition:
+        transform 220ms ease,
+        border-color 220ms ease,
+        box-shadow 220ms ease;
+    }
+
+    .gallery button:hover,
+    .gallery button:focus-visible {
+      transform: translateY(-3px);
+      border-color: rgba(184, 134, 36, 0.72);
+      box-shadow:
+        0 16px 42px rgba(184, 134, 36, 0.14),
+        inset 0 0 0 1px rgba(184, 134, 36, 0.24);
+      outline: none;
+    }
+
+    .gallery img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      background: #111;
+    }
+
+    .viewer {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.94);
+    }
+
+    .viewer img {
+      max-width: 90vw;
+      max-height: 84vh;
+      border-radius: 8px;
+      border: 1px solid var(--logo-gold-soft);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.72);
+    }
+
+    .close,
+    .arrow {
+      position: absolute;
+      z-index: 10001;
+      color: var(--logo-gold);
+      background: rgba(28, 30, 34, 0.86);
+      border: 1px solid var(--logo-gold-soft);
+      cursor: pointer;
+    }
+
+    .close {
+      top: 20px;
+      right: 32px;
+      width: 52px;
+      height: 52px;
+      border-radius: 8px;
+      font-size: 38px;
+      line-height: 46px;
+    }
+
+    .arrow {
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 48px;
+      user-select: none;
+    }
+
+    .arrow:hover,
+    .close:hover {
+      border-color: rgba(184, 134, 36, 0.72);
+      background: rgba(36, 39, 45, 0.9);
+    }
+
+    .arrow-left {
+      left: 22px;
+    }
+
+    .arrow-right {
+      right: 22px;
+    }
+
+    @media (max-width: 720px) {
+      body {
+        background-attachment: scroll;
+      }
+
+      .page {
+        padding: 18px;
+      }
+
+      .nav {
+        top: 16px;
+        right: 16px;
+        left: 16px;
+        justify-content: flex-end;
+        gap: 8px;
+      }
+
+      .nav a {
+        min-width: 0;
+        padding: 10px 11px;
+        font-size: 0.68rem;
+      }
+
+      .content {
+        padding: 104px 4px 34px;
+      }
+
+      h1 {
+        margin-bottom: 24px;
+      }
+
+      .arrow {
+        font-size: 36px;
+        padding: 8px 13px;
+      }
+
+      .close {
+        top: 16px;
+        right: 20px;
+        width: 46px;
+        height: 46px;
+        font-size: 34px;
+        line-height: 40px;
+      }
+    }
+  </style>
 </head>
 
 <body>
-
-<header>
-    <h1>Nova Humanitatis — Stills</h1>
-
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="episodes.html">Episodes</a>
-        <a href="stills.html">Stills</a>
-        <a href="about.html">About</a>
+  <main class="page">
+    <nav class="nav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="episodes.html">Episodes</a>
+      <a href="about.html">About</a>
     </nav>
-</header>
 
-<main class="gallery">
-    <img src="stills-img/episode1-001.jpg" onclick="openViewer(0)" alt="Nova Humanitatis still 1">
-    <img src="stills-img/episode1-002.jpg" onclick="openViewer(1)" alt="Nova Humanitatis still 2">
-    <img src="stills-img/episode1-003.jpg" onclick="openViewer(2)" alt="Nova Humanitatis still 3">
-    <img src="stills-img/episode1-004.jpg" onclick="openViewer(3)" alt="Nova Humanitatis still 4">
-</main>
+    <section class="content">
+      <div class="heading">
+        <p class="kicker">The Archive</p>
+        <h1>Stills</h1>
+      </div>
 
-<div class="viewer" id="viewer">
-    <span class="close" onclick="closeViewer()">&times;</span>
+      <div class="gallery" id="gallery" aria-label="Nova Humanitatis stills gallery"></div>
+    </section>
+  </main>
 
-    <button class="arrow arrow-left" onclick="prevImage()">&#10094;</button>
+  <div class="viewer" id="viewer">
+    <button class="close" type="button" onclick="closeViewer()" aria-label="Close viewer">&times;</button>
+    <button class="arrow arrow-left" type="button" onclick="prevImage()" aria-label="Previous image">&#10094;</button>
     <img id="viewerImage" alt="Expanded Nova Humanitatis still">
-    <button class="arrow arrow-right" onclick="nextImage()">&#10095;</button>
-</div>
+    <button class="arrow arrow-right" type="button" onclick="nextImage()" aria-label="Next image">&#10095;</button>
+  </div>
 
-<script>
-const images = [
-    "stills-img/episode1-001.jpg",
-    "stills-img/episode1-002.jpg",
-    "stills-img/episode1-003.jpg",
-    "stills-img/episode1-004.jpg"
-];
+  <script>
+    const images = [
+      { src: "stills-img/image1.webp", alt: "Nova Humanitatis still 1" },
+      { src: "stills-img/image2.webp", alt: "Nova Humanitatis still 2" },
+      { src: "stills-img/image3.webp", alt: "Nova Humanitatis still 3" },
+      { src: "stills-img/image4.webp", alt: "Nova Humanitatis still 4" }
+    ];
 
-let currentIndex = 0;
+    let currentIndex = 0;
 
-function openViewer(index){
-    currentIndex = index;
-    document.getElementById("viewerImage").src = images[currentIndex];
-    document.getElementById("viewer").style.display = "flex";
-}
-
-function closeViewer(){
-    document.getElementById("viewer").style.display = "none";
-}
-
-function nextImage(){
-    currentIndex = (currentIndex + 1) % images.length;
-    document.getElementById("viewerImage").src = images[currentIndex];
-}
-
-function prevImage(){
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
-    document.getElementById("viewerImage").src = images[currentIndex];
-}
-
-document.addEventListener("keydown", function(event){
+    const gallery = document.getElementById("gallery");
     const viewer = document.getElementById("viewer");
-    if(viewer.style.display === "flex"){
-        if(event.key === "ArrowRight"){
-            nextImage();
-        }
-        if(event.key === "ArrowLeft"){
-            prevImage();
-        }
-        if(event.key === "Escape"){
-            closeViewer();
-        }
-    }
-});
+    const viewerImage = document.getElementById("viewerImage");
 
-document.getElementById("viewer").addEventListener("click", function(event){
-    if(event.target.id === "viewer"){
+    images.forEach((image, index) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.setAttribute("aria-label", "Open " + image.alt);
+      button.addEventListener("click", () => openViewer(index));
+
+      const img = document.createElement("img");
+      img.src = image.src;
+      img.alt = image.alt;
+      img.loading = "lazy";
+
+      button.appendChild(img);
+      gallery.appendChild(button);
+    });
+
+    function openViewer(index) {
+      currentIndex = index;
+      viewerImage.src = images[currentIndex].src;
+      viewerImage.alt = images[currentIndex].alt;
+      viewer.style.display = "flex";
+    }
+
+    function closeViewer() {
+      viewer.style.display = "none";
+    }
+
+    function nextImage() {
+      currentIndex = (currentIndex + 1) % images.length;
+      viewerImage.src = images[currentIndex].src;
+      viewerImage.alt = images[currentIndex].alt;
+    }
+
+    function prevImage() {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      viewerImage.src = images[currentIndex].src;
+      viewerImage.alt = images[currentIndex].alt;
+    }
+
+    document.addEventListener("keydown", function(event) {
+      if (viewer.style.display === "flex") {
+        if (event.key === "ArrowRight") {
+          nextImage();
+        }
+
+        if (event.key === "ArrowLeft") {
+          prevImage();
+        }
+
+        if (event.key === "Escape") {
+          closeViewer();
+        }
+      }
+    });
+
+    viewer.addEventListener("click", function(event) {
+      if (event.target.id === "viewer") {
         closeViewer();
-    }
-});
-</script>
-
+      }
+    });
+  </script>
 </body>
 </html>
