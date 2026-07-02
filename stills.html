@@ -170,7 +170,7 @@
       display: block;
       width: 100%;
       aspect-ratio: 16 / 9;
-      object-fit: contain;
+      object-fit: cover;
       border-radius: 6px;
       background: #000;
     }
@@ -180,35 +180,28 @@
       position: fixed;
       inset: 0;
       z-index: 9999;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
+      padding: 88px 76px 44px;
       background: rgba(0, 0, 0, 0.94);
     }
 
-    .viewer-frame {
-      width: min(90vw, 1280px);
-      max-height: 82vh;
-      aspect-ratio: 16 / 9;
+    .viewer img {
+      display: block;
+      max-width: 100%;
+      max-height: calc(100svh - 132px);
+      width: auto;
+      height: auto;
+      object-fit: contain;
       border-radius: 8px;
       border: 1px solid var(--logo-gold-soft);
-      overflow: hidden;
-      background: #000;
+      background: transparent;
       box-shadow: 0 24px 70px rgba(0, 0, 0, 0.72);
-    }
-
-    .viewer-frame img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      border: 0;
-      border-radius: 0;
-      background: #000;
     }
 
     .close,
     .arrow {
-      position: absolute;
+      position: fixed;
       z-index: 10001;
       color: var(--logo-gold);
       background: rgba(28, 30, 34, 0.86);
@@ -229,9 +222,11 @@
     .arrow {
       top: 50%;
       transform: translateY(-50%);
-      padding: 10px 18px;
+      width: 72px;
+      height: 96px;
       border-radius: 8px;
-      font-size: 48px;
+      font-size: 54px;
+      line-height: 1;
       user-select: none;
     }
 
@@ -241,6 +236,12 @@
 
     .arrow-right {
       right: 22px;
+    }
+
+    .close:hover,
+    .arrow:hover {
+      border-color: rgba(184, 134, 36, 0.72);
+      background: rgba(36, 39, 45, 0.92);
     }
 
     @media (max-width: 720px) {
@@ -274,23 +275,37 @@
         padding: 16px;
       }
 
-      .viewer-frame {
-        width: 92vw;
-        max-height: 74vh;
+      .viewer {
+        padding: 78px 14px 28px;
       }
 
-      .arrow {
-        font-size: 36px;
-        padding: 8px 13px;
+      .viewer img {
+        max-width: 100%;
+        max-height: calc(100svh - 112px);
       }
 
       .close {
         top: 16px;
-        right: 20px;
-        width: 46px;
-        height: 46px;
+        right: 16px;
+        width: 48px;
+        height: 48px;
         font-size: 34px;
-        line-height: 40px;
+        line-height: 42px;
+      }
+
+      .arrow {
+        width: 50px;
+        height: 78px;
+        font-size: 42px;
+        background: rgba(28, 30, 34, 0.72);
+      }
+
+      .arrow-left {
+        left: 10px;
+      }
+
+      .arrow-right {
+        right: 10px;
       }
     }
   </style>
@@ -315,11 +330,7 @@
   <div class="viewer" id="viewer">
     <button class="close" type="button" onclick="closeViewer()" aria-label="Close viewer">&times;</button>
     <button class="arrow arrow-left" type="button" onclick="prevImage()" aria-label="Previous image">&#10094;</button>
-
-    <div class="viewer-frame">
-      <img id="viewerImage" alt="Expanded Nova Humanitatis still">
-    </div>
-
+    <img id="viewerImage" alt="Expanded Nova Humanitatis still">
     <button class="arrow arrow-right" type="button" onclick="nextImage()" aria-label="Next image">&#10095;</button>
   </div>
 
@@ -364,10 +375,12 @@
       viewerImage.src = displayImages[currentIndex].src;
       viewerImage.alt = displayImages[currentIndex].alt;
       viewer.style.display = "flex";
+      document.body.style.overflow = "hidden";
     }
 
     function closeViewer() {
       viewer.style.display = "none";
+      document.body.style.overflow = "";
     }
 
     function nextImage() {
