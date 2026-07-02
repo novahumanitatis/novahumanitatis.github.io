@@ -182,19 +182,18 @@
       z-index: 9999;
       align-items: center;
       justify-content: center;
-      padding: 72px 96px 34px;
-      background: rgba(0, 0, 0, 0.94);
+      padding: 0;
+      background: rgba(0, 0, 0, 0.96);
     }
 
     .viewer img {
       display: block;
-      width: 86vw;
-      height: 82svh;
+      width: 100vw;
+      height: 100dvh;
       object-fit: contain;
-      border-radius: 8px;
-      border: 1px solid var(--logo-gold-soft);
-      background: transparent;
-      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.72);
+      border: 0;
+      border-radius: 0;
+      background: #000;
     }
 
     .close,
@@ -202,44 +201,38 @@
       position: fixed;
       z-index: 10001;
       color: var(--logo-gold);
-      background: rgba(28, 30, 34, 0.86);
+      background: rgba(28, 30, 34, 0.82);
       border: 1px solid var(--logo-gold-soft);
       cursor: pointer;
     }
 
     .close {
-      top: 20px;
-      right: 32px;
-      width: 52px;
-      height: 52px;
+      top: 18px;
+      right: 22px;
+      width: 58px;
+      height: 58px;
       border-radius: 8px;
-      font-size: 38px;
-      line-height: 46px;
+      font-size: 42px;
+      line-height: 50px;
     }
 
     .arrow {
       top: 50%;
       transform: translateY(-50%);
-      width: 72px;
-      height: 96px;
+      width: 74px;
+      height: 110px;
       border-radius: 8px;
-      font-size: 54px;
+      font-size: 62px;
       line-height: 1;
       user-select: none;
     }
 
     .arrow-left {
-      left: 22px;
+      left: 18px;
     }
 
     .arrow-right {
-      right: 22px;
-    }
-
-    .close:hover,
-    .arrow:hover {
-      border-color: rgba(184, 134, 36, 0.72);
-      background: rgba(36, 39, 45, 0.92);
+      right: 18px;
     }
 
     @media (max-width: 720px) {
@@ -273,37 +266,28 @@
         padding: 16px;
       }
 
-      .viewer {
-        padding: 74px 12px 24px;
-      }
-
-      .viewer img {
-        width: 92vw;
-        height: 76svh;
-      }
-
       .close {
-        top: 16px;
-        right: 16px;
-        width: 48px;
-        height: 48px;
-        font-size: 34px;
-        line-height: 42px;
+        top: 14px;
+        right: 14px;
+        width: 52px;
+        height: 52px;
+        font-size: 38px;
+        line-height: 46px;
       }
 
       .arrow {
-        width: 50px;
-        height: 78px;
-        font-size: 42px;
-        background: rgba(28, 30, 34, 0.72);
+        width: 54px;
+        height: 92px;
+        font-size: 48px;
+        background: rgba(28, 30, 34, 0.68);
       }
 
       .arrow-left {
-        left: 10px;
+        left: 8px;
       }
 
       .arrow-right {
-        right: 10px;
+        right: 8px;
       }
     }
   </style>
@@ -417,4 +401,3 @@
   </script>
 </body>
 </html>
-
