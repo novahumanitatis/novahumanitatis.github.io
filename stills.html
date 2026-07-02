@@ -29,14 +29,22 @@
     }
 
     body {
+      position: relative;
       overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
       background-image:
         linear-gradient(rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.72)),
         url("stills.webp");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      background-attachment: fixed;
     }
 
     body.viewer-open {
@@ -44,6 +52,8 @@
     }
 
     .page {
+      position: relative;
+      z-index: 1;
       min-height: 100vh;
       padding: 28px;
     }
@@ -213,6 +223,7 @@
       background: rgba(28, 30, 34, 0.82);
       border: 1px solid var(--logo-gold-soft);
       cursor: pointer;
+      transition: opacity 220ms ease, transform 220ms ease;
     }
 
     .close {
@@ -245,10 +256,6 @@
     }
 
     @media (max-width: 720px) {
-      body {
-        background-attachment: scroll;
-      }
-
       .page {
         padding: 18px;
       }
@@ -294,9 +301,10 @@
         touch-action: none;
       }
 
-      .viewer img {
-        width: 100vw;
-        height: 100dvh;
+      .viewer.controls-hidden .close {
+        opacity: 0;
+        pointer-events: none;
+        transform: scale(0.92);
       }
     }
   </style>
@@ -345,6 +353,7 @@
     let touchStartY = 0;
     let touchEndX = 0;
     let touchEndY = 0;
+    let controlsTimer;
 
     const gallery = document.getElementById("gallery");
     const viewer = document.getElementById("viewer");
@@ -369,20 +378,47 @@
       return window.matchMedia("(pointer: coarse)").matches;
     }
 
+    function showControlsTemporarily() {
+      if (!isTouchDevice()) {
+        return;
+      }
+
+      viewer.classList.remove("controls-hidden");
+      clearTimeout(controlsTimer);
+
+      controlsTimer = setTimeout(function() {
+        viewer.classList.add("controls-hidden");
+      }, 1400);
+    }
+
+    function toggleControls() {
+      if (!isTouchDevice()) {
+        return;
+      }
+
+      clearTimeout(controlsTimer);
+      viewer.classList.toggle("controls-hidden");
+    }
+
     function openViewer(index) {
       currentIndex = index;
       viewerImage.src = displayImages[currentIndex].src;
       viewerImage.alt = displayImages[currentIndex].alt;
       viewer.classList.add("is-open");
+      viewer.classList.remove("controls-hidden");
       document.body.classList.add("viewer-open");
 
       if (isTouchDevice() && viewer.requestFullscreen) {
         viewer.requestFullscreen().catch(function() {});
       }
+
+      showControlsTemporarily();
     }
 
     function closeViewer() {
+      clearTimeout(controlsTimer);
       viewer.classList.remove("is-open");
+      viewer.classList.remove("controls-hidden");
       document.body.classList.remove("viewer-open");
 
       if (document.fullscreenElement) {
@@ -417,6 +453,11 @@
       }
     }
 
+    viewerImage.addEventListener("click", function(event) {
+      event.stopPropagation();
+      toggleControls();
+    });
+
     viewer.addEventListener("touchstart", function(event) {
       touchStartX = event.changedTouches[0].screenX;
       touchStartY = event.changedTouches[0].screenY;
@@ -431,6 +472,7 @@
     document.addEventListener("fullscreenchange", function() {
       if (!document.fullscreenElement && viewer.classList.contains("is-open")) {
         viewer.classList.remove("is-open");
+        viewer.classList.remove("controls-hidden");
         document.body.classList.remove("viewer-open");
       }
     });
