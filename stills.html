@@ -187,11 +187,12 @@
 
     .viewer-frame {
       width: min(90vw, 1280px);
+      max-height: 82vh;
       aspect-ratio: 16 / 9;
       border-radius: 8px;
       border: 1px solid var(--logo-gold-soft);
       overflow: hidden;
-      background: #111;
+      background: #000;
       box-shadow: 0 24px 70px rgba(0, 0, 0, 0.72);
     }
 
@@ -199,10 +200,10 @@
       display: block;
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       border: 0;
       border-radius: 0;
-      background: #111;
+      background: #000;
     }
 
     .close,
@@ -275,6 +276,7 @@
 
       .viewer-frame {
         width: 92vw;
+        max-height: 74vh;
       }
 
       .arrow {
