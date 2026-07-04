@@ -246,6 +246,32 @@
       font-size: 1rem;
     }
 
+    .author-image {
+      margin-top: 22px;
+      overflow: hidden;
+      border: 1px solid rgba(232, 238, 250, 0.28);
+      border-radius: 8px;
+      background: rgba(3, 6, 10, 0.46);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        0 18px 46px rgba(0, 0, 0, 0.32);
+    }
+
+    .author-image img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+    }
+
+    .author-code {
+      color: var(--logo);
+      font-family: "Segoe UI Symbol", "Noto Sans Symbols", Arial, Helvetica, sans-serif;
+      font-size: clamp(1.2rem, 1.8vw, 1.65rem);
+      line-height: 1.9;
+      letter-spacing: 0.04em;
+    }
+
     footer {
       width: min(calc(100% - 40px), var(--max));
       margin: 0 auto;
@@ -324,6 +350,11 @@
 
       .lead {
         font-size: 1.16rem;
+      }
+
+      .author-code {
+        font-size: 1.12rem;
+        line-height: 1.85;
       }
     }
   </style>
@@ -432,10 +463,28 @@
         </div>
       </div>
     </section>
+
+    <section class="pane" aria-labelledby="author-title">
+      <div class="pane-grid">
+        <div>
+          <span class="eyebrow">Author</span>
+          <h2 id="author-title">About the Author</h2>
+          <div class="author-image">
+            <img src="author.webp" alt="Author of Nova Humanitatis">
+          </div>
+        </div>
+        <div class="author-code">⌬⟟⧖’⧗⟁⍜ ᚙ⟒⍾⟊ ⧫⟟⟁⍜⌖ ⌁⟁⟁⟊,<br>
+⍜⟒⧫⧖⟟ ⌬⟁⍜⟊ ⧗⟒⟟’⍾⟁⧖ ⟟⍜⟊⟒.<br>
+⧗⟟⍜⧫⟁ ⟟⟒⧖⟁ ⌁⟟⟁⧖, ⌬⟁⟟⧖ ⟊⟁⍜⧫⟒ ⧫⟒⧖⟊,<br>
+⧖⟁⧖’⟟⍜ ⌁⟒⧫⟟ ⧗⟁⧖⍜ ⟒⍾⟟⧫⟊,<br>
+⌬⟁⍜⟟ ⧫⟁⧖ ⟒⧖⟊⍜ ⌬⟟⧖⟁ ⧫⟁⍜’⟊⟒⧖.
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer>
-    Nova Humanitatis is an original independent creative project. All original content is protected under applicable copyright and related rights.
+    Nova Humanitatis is an original independent creative project; all content is protected under applicable copyright and related rights.
   </footer>
 </body>
 </html>
