@@ -407,11 +407,6 @@
       viewer.classList.add("is-open");
       viewer.classList.remove("controls-hidden");
       document.body.classList.add("viewer-open");
-
-      if (isTouchDevice() && viewer.requestFullscreen) {
-        viewer.requestFullscreen().catch(function() {});
-      }
-
       showControlsTemporarily();
     }
 
@@ -420,22 +415,20 @@
       viewer.classList.remove("is-open");
       viewer.classList.remove("controls-hidden");
       document.body.classList.remove("viewer-open");
-
-      if (document.fullscreenElement) {
-        document.exitFullscreen().catch(function() {});
-      }
     }
 
     function nextImage() {
       currentIndex = (currentIndex + 1) % displayImages.length;
       viewerImage.src = displayImages[currentIndex].src;
       viewerImage.alt = displayImages[currentIndex].alt;
+      showControlsTemporarily();
     }
 
     function prevImage() {
       currentIndex = (currentIndex - 1 + displayImages.length) % displayImages.length;
       viewerImage.src = displayImages[currentIndex].src;
       viewerImage.alt = displayImages[currentIndex].alt;
+      showControlsTemporarily();
     }
 
     function handleSwipe() {
@@ -468,14 +461,6 @@
       touchEndY = event.changedTouches[0].screenY;
       handleSwipe();
     }, { passive: true });
-
-    document.addEventListener("fullscreenchange", function() {
-      if (!document.fullscreenElement && viewer.classList.contains("is-open")) {
-        viewer.classList.remove("is-open");
-        viewer.classList.remove("controls-hidden");
-        document.body.classList.remove("viewer-open");
-      }
-    });
 
     document.addEventListener("keydown", function(event) {
       if (viewer.classList.contains("is-open")) {
