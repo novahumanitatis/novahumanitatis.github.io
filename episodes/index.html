@@ -1,0 +1,302 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Episodes | Nova Humanitatis</title>
+  <meta name="description" content="Explore the Nova Humanitatis episode archive and open Episode 1, Praeludium." />
+  <link rel="canonical" href="https://novahumanitatis.com/episodes/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Episodes | Nova Humanitatis" />
+  <meta property="og:description" content="Explore the Nova Humanitatis episode archive and open Episode 1, Praeludium." />
+  <meta property="og:url" content="https://novahumanitatis.com/episodes/" />
+
+  <style>
+    :root {
+      --logo-gold: #b88624;
+      --logo-gold-muted: #a7833c;
+      --logo-gold-soft: rgba(184, 134, 36, 0.44);
+      --logo-gold-faint: rgba(184, 134, 36, 0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      width: 100%;
+      min-height: 100%;
+      background: #02040a;
+      color: var(--logo-gold);
+      font-family: "Cinzel", Georgia, serif;
+    }
+
+    body {
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(0, 0, 0, 0.24), rgba(0, 0, 0, 0.68)),
+        url("/episodes.webp");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      padding: 28px;
+    }
+
+    .nav {
+      position: fixed;
+      top: 24px;
+      right: 28px;
+      z-index: 20;
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .nav a {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 104px;
+      padding: 13px 20px;
+      color: var(--logo-gold);
+      text-decoration: none;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: 1px solid var(--logo-gold-soft);
+      border-radius: 8px;
+      background: rgba(28, 30, 34, 0.86);
+      box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.28),
+        inset 0 0 0 1px var(--logo-gold-faint);
+      overflow: hidden;
+      transition:
+        transform 220ms ease,
+        border-color 220ms ease,
+        background 220ms ease,
+        box-shadow 220ms ease;
+    }
+
+    .nav a::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        115deg,
+        transparent 0%,
+        rgba(184, 134, 36, 0.28) 45%,
+        transparent 72%
+      );
+      transform: translateX(-120%);
+      transition: transform 520ms ease;
+    }
+
+    .nav a:hover {
+      transform: translateY(-3px);
+      border-color: rgba(184, 134, 36, 0.72);
+      background: rgba(36, 39, 45, 0.9);
+      box-shadow:
+        0 16px 42px rgba(184, 134, 36, 0.16),
+        inset 0 0 0 1px rgba(184, 134, 36, 0.24);
+    }
+
+    .nav a:hover::before {
+      transform: translateX(120%);
+    }
+
+    .content {
+      padding: 120px clamp(18px, 6vw, 88px) 70px;
+    }
+
+    .kicker {
+      margin-bottom: 18px;
+      font-family: "Trebuchet MS", Arial, sans-serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--logo-gold);
+      text-shadow: 0 4px 18px rgba(0, 0, 0, 0.72);
+    }
+
+    h1 {
+      margin-bottom: 36px;
+      color: var(--logo-gold);
+      font-size: clamp(3.4rem, 8vw, 7.4rem);
+      line-height: 0.92;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      text-shadow:
+        0 5px 28px rgba(0, 0, 0, 0.82),
+        0 0 18px rgba(184, 134, 36, 0.18);
+    }
+
+    .episodes-list {
+      width: min(980px, 100%);
+      display: grid;
+      gap: 24px;
+    }
+
+    .episode-card {
+      display: grid;
+      grid-template-columns: minmax(280px, 420px) 1fr;
+      gap: 26px;
+      align-items: center;
+      padding: 22px;
+      color: var(--logo-gold);
+      text-decoration: none;
+      border: 1px solid var(--logo-gold-soft);
+      border-radius: 8px;
+      background: rgba(28, 30, 34, 0.88);
+      box-shadow:
+        0 18px 50px rgba(0, 0, 0, 0.46),
+        inset 0 0 0 1px var(--logo-gold-faint);
+      transition:
+        transform 220ms ease,
+        border-color 220ms ease,
+        box-shadow 220ms ease;
+    }
+
+    .episode-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(184, 134, 36, 0.72);
+      box-shadow:
+        0 22px 58px rgba(184, 134, 36, 0.14),
+        inset 0 0 0 1px rgba(184, 134, 36, 0.24);
+    }
+
+    .episode-card img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      border-radius: 6px;
+      background: #000;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.38);
+    }
+
+    .episode-meta {
+      min-width: 0;
+    }
+
+    .episode-number {
+      margin-bottom: 10px;
+      font-family: "Trebuchet MS", Arial, sans-serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--logo-gold);
+    }
+
+    .episode-title {
+      margin-bottom: 14px;
+      color: var(--logo-gold);
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      line-height: 0.95;
+      font-weight: 500;
+      text-transform: uppercase;
+      text-shadow:
+        0 4px 20px rgba(0, 0, 0, 0.72),
+        0 0 16px rgba(184, 134, 36, 0.16);
+    }
+
+    .episode-desc {
+      font-family: Arial, sans-serif;
+      color: var(--logo-gold-muted);
+      font-size: clamp(1.12rem, 1.45vw, 1.34rem);
+      font-weight: 300;
+      line-height: 1.68;
+      text-shadow: 0 3px 14px rgba(0, 0, 0, 0.72);
+    }
+
+    @media (max-width: 900px) {
+      .episodes-list {
+        width: min(720px, 100%);
+      }
+
+      .episode-card {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .page {
+        padding: 18px;
+      }
+
+      .nav {
+        top: 16px;
+        right: 16px;
+        left: 16px;
+        justify-content: flex-end;
+        gap: 8px;
+      }
+
+      .nav a {
+        min-width: 0;
+        padding: 10px 11px;
+        font-size: 0.68rem;
+      }
+
+      .content {
+        padding: 104px 4px 36px;
+      }
+
+      h1 {
+        margin-bottom: 28px;
+      }
+
+      .episode-card {
+        padding: 16px;
+        gap: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <nav class="nav" aria-label="Main navigation">
+      <a href="/">Home</a>
+      <a href="/stills/">Stills</a>
+      <a href="/about/">About</a>
+    </nav>
+
+    <section class="content">
+      <p class="kicker">The Series</p>
+      <h1>Episodes</h1>
+
+      <div class="episodes-list">
+        <a class="episode-card" href="/episodes/episode-1/" aria-label="Open Episode 1 Praeludium">
+          <img src="/episode1.webp" alt="Episode 1 - Praeludium">
+          <div class="episode-meta">
+            <p class="episode-number">Episode 1</p>
+            <h2 class="episode-title">Praeludium</h2>
+            <p class="episode-desc">The opening movement of Nova Humanitatis.</p>
+          </div>
+        </a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
