@@ -1,0 +1,212 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Episode 1 | Nova Humanitatis</title>
+  <meta name="description" content="Watch Episode 1 of Nova Humanitatis, Praeludium." />
+  <link rel="canonical" href="https://novahumanitatis.com/episodes/episode-1/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Episode 1 | Nova Humanitatis" />
+  <meta property="og:description" content="Watch Episode 1 of Nova Humanitatis, Praeludium." />
+  <meta property="og:url" content="https://novahumanitatis.com/episodes/episode-1/" />
+
+  <style>
+    :root {
+      --logo-gold: #b88624;
+      --logo-gold-soft: rgba(184, 134, 36, 0.44);
+      --logo-gold-faint: rgba(184, 134, 36, 0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-image:
+        linear-gradient(rgba(0, 0, 0, 0.26), rgba(0, 0, 0, 0.68)),
+        url("/episodestem.webp");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .page {
+      position: relative;
+      width: 100%;
+      height: 100svh;
+      overflow: hidden;
+      padding: 0 24px;
+    }
+
+    .nav {
+      position: fixed;
+      top: 22px;
+      right: 28px;
+      z-index: 20;
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .nav a {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 104px;
+      padding: 13px 20px;
+      color: var(--logo-gold);
+      text-decoration: none;
+      font-family: "Cinzel", Georgia, serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: 1px solid var(--logo-gold-soft);
+      border-radius: 8px;
+      background: rgba(28, 30, 34, 0.86);
+      box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.28),
+        inset 0 0 0 1px var(--logo-gold-faint);
+      overflow: hidden;
+      transition:
+        transform 220ms ease,
+        border-color 220ms ease,
+        background 220ms ease,
+        box-shadow 220ms ease;
+    }
+
+    .nav a::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        115deg,
+        transparent 0%,
+        rgba(184, 134, 36, 0.28) 45%,
+        transparent 72%
+      );
+      transform: translateX(-120%);
+      transition: transform 520ms ease;
+    }
+
+    .nav a:hover,
+    .nav a:focus-visible {
+      transform: translateY(-3px);
+      border-color: rgba(184, 134, 36, 0.72);
+      background: rgba(36, 39, 45, 0.9);
+      box-shadow:
+        0 16px 42px rgba(184, 134, 36, 0.16),
+        inset 0 0 0 1px rgba(184, 134, 36, 0.24);
+      outline: none;
+    }
+
+    .nav a:hover::before,
+    .nav a:focus-visible::before {
+      transform: translateX(120%);
+    }
+
+    .player-wrap {
+      position: absolute;
+      top: 104px;
+      left: 50%;
+      z-index: 5;
+      width: min(980px, calc(100vw - 32px), calc((100svh - 150px) * 16 / 9));
+      transform: translateX(-50%);
+    }
+
+    .player {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #000;
+      border: 1px solid rgba(255, 255, 255, 0.26);
+      box-shadow:
+        0 24px 70px rgba(0, 0, 0, 0.72),
+        0 0 44px rgba(90, 170, 255, 0.16);
+    }
+
+    .player iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+
+    @media (max-width: 1200px) {
+      .player-wrap {
+        top: 112px;
+        width: min(940px, calc(100vw - 32px), calc((100svh - 170px) * 16 / 9));
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav {
+        top: 16px;
+        right: 16px;
+        left: 16px;
+        justify-content: flex-end;
+        gap: 6px;
+      }
+
+      .nav a {
+        min-width: 0;
+        padding: 9px 8px;
+        font-size: 0.6rem;
+      }
+
+      .player-wrap {
+        top: 96px;
+        width: min(calc(100vw - 24px), calc((100svh - 150px) * 16 / 9));
+      }
+
+      .player {
+        border-radius: 8px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <nav class="nav" aria-label="Main navigation">
+      <a href="/">Home</a>
+      <a href="/stills/">Stills</a>
+      <a href="/episodes/">Episodes</a>
+      <a href="/about/">About</a>
+    </nav>
+
+    <section class="player-wrap" aria-label="Episode 1 video player">
+      <div class="player">
+        <iframe
+          src="https://www.facebook.com/plugins/video.php?height=314&amp;href=https%3A%2F%2Fwww.facebook.com%2F61591126589499%2Fvideos%2F1005347348775458%2F&amp;show_text=false&amp;width=560&amp;t=0"
+          width="560"
+          height="314"
+          style="border:none;overflow:hidden"
+          scrolling="no"
+          frameborder="0"
+          allowfullscreen="true"
+          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+          allowFullScreen="true">
+        </iframe>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
